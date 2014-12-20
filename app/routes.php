@@ -64,7 +64,7 @@ Route::get('files', function() {
     $uploadPath = join('/', ['uploads', $userFolder, $sessionFolder]);
     if (!is_dir(public_path($uploadPath)))
     {
-        App::abort(404, 'Not found');
+        Response::json(['data'=>[]]);
     }
 
     $files = scandir(public_path($uploadPath));
