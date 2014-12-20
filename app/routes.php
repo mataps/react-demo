@@ -64,7 +64,7 @@ Route::get('files', function() {
     $uploadPath = join('/', ['uploads', $userFolder, $sessionFolder]);
     if (!is_dir(public_path($uploadPath)))
     {
-        Response::json(['data'=>[]]);
+        return Response::json(['data'=>[]]);
     }
 
     $files = scandir(public_path($uploadPath));
