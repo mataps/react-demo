@@ -1,0 +1,38 @@
+{
+  "name": "diff-renderer",
+  "version": "0.1.1",
+  "description": "Render diff to the dom.",
+  "keywords": [
+    "diff",
+    "renderer",
+    "dom",
+    "virtual dom",
+    "react",
+    "binding"
+  ],
+  "author": {
+    "name": "Oleg Slobodskoi",
+    "email": "oleg008@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:kof/diff-renderer.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ],
+  "homepage": "https://github.com/kof/diff-renderer",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.1",
+    "commit": "6a8e8c911c18f3a0f8d084752fb83e71885eb877"
+  },
+  "_source": "git://github.com/kof/diff-renderer.git",
+  "_target": "~0.1.1",
+  "_originalSource": "diff-renderer",
+  "_direct": true
+}
