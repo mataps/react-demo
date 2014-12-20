@@ -1,0 +1,82 @@
+html, body{
+    height:100%;
+}
+
+#content {
+    margin-left: 40px;
+    float: left;
+    height: 100vh;
+}
+
+#menu {
+    -ms-opacity: 0.95;
+    opacity: 0.95;
+}
+
+.preview {
+    width: 78%;
+}
+
+.preview .close {
+    position: relative;
+    z-index: 1000;
+}
+
+.preview-menu {
+    right: 0;
+    top: 0;
+    position: absolute;
+    height: 100vh;
+    width: 20%;
+    background: gray;
+    margin: 0;
+}
+
+.preview-menu > li > a {
+    color: #FFF;
+    display: block;
+    padding: 5px 20px;
+}
+
+#fileupload {
+    top: 50%;
+    left: 50%;
+    position: relative;
+}
+
+#dropzone {
+    background: white;
+    color: #333;
+    text-align: center;
+    font-weight: bold;
+}
+#dropzone.in {
+    font-size: larger;
+}
+#dropzone.hover {
+    background: #d3d3d3;
+}
+#dropzone.fade {
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    opacity: 1;
+}
+
+.log-files {
+    margin-top: 20px;
+}
+
+.log-files, .delete-batch {
+    text-align: left;
+    border: 0;
+    color: grey;
+    background: rgb(37, 37, 37);
+}
+
+.log-files > a, .delete-batch > a{
+    background: red;
+    background: rgb(50, 50, 50);
+}
