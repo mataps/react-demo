@@ -79,7 +79,9 @@ Route::get('files', function() {
 });
 
 Route::get('/', function() {
-    Session::put('time', time());
+    if ( ! Session::has('time')) {
+        Session::put('time', time());
+    }
     return View::make('index');
 });
 
