@@ -79,7 +79,7 @@ Route::get('files', function() {
 });
 
 Route::get('/', function() {
-//    Session::put('time', time());
+    Session::put('time', time());
     return View::make('index');
 });
 
