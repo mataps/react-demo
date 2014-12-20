@@ -1,0 +1,19 @@
+<div class="preview">
+    <button type="button" class="close pull-left"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+    <span class="filename pull-right"><%= filename %></span>
+    <div class="fileupload-progress fade">
+        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar progress-bar-success" style="width:0%;"></div>
+        </div>
+        <div class="progress-extended"></div>
+    </div>
+    <img src="<%= imageSrc %>" alt="Upload preview" class="img-responsive img-preview fade"/>
+</div>
+<ul class="preview-menu list-unstyled">
+    <li>
+        <a href="#">Update</a>
+    </li>
+    <li>
+        <a href="#" id="send">Send</a>
+    </li>
+</ul>

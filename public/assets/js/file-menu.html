@@ -1,0 +1,16 @@
+<nav>
+    <h2><i class="fa fa-reorder"></i>Files</h2>
+    <ul>
+        <% _.each(files, function(file) { %>
+        <li>
+            <a href="#"><%= file.name %></a>
+        </li>
+        <% }); %>
+        <li class="log-files">
+            <a href="#">LOG</a>
+        </li>
+        <li class="delete-batch">
+            <a href="#">DELETE BATCH</a>
+        </li>
+    </ul>
+</nav>

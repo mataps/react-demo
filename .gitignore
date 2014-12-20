@@ -1,0 +1,16 @@
+/bootstrap/compiled.php
+/vendor
+/.idea
+composer.phar
+composer.lock
+.env.*.php
+.env.php
+.DS_Store
+Thumbs.db
+_ide_helper.php
+/node_modules/
+/public/uploads
+/public/assets/vendor
+/public/assets/css/style.css
+/public/assets/js/libs*
+/public/assets/js/build*
