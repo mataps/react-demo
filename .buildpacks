@@ -1,1 +1,1 @@
-heroku config:add BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-multi.git
+https://github.com/heroku/heroku-buildpack-nodejs.git#0198c71daa8
