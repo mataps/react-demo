@@ -18,6 +18,7 @@ $(function () {
       alert('Fail!');
     },
     completed: function(e, data) {
+      menu.fileMenu('addFiles', data.result.files);
       if (data.getNumberOfFiles() == 0) {
         var lastFile = menu.fileMenu('option', 'getLastFile')();
         preview.uploadPreview('setPreview', lastFile);
@@ -39,19 +40,19 @@ $(function () {
     }
   });
 
-  //preview.uploadPreview({
-  //  send: function(e) {
-  //    $('#sendModal').modal('show');
-  //  }
-  //})
+  preview.uploadPreview({
+    send: function(e) {
+      $('#sendModal').modal('show');
+    }
+  })
 
   var menu = $('#menu').fileMenu({
     deleteBatch: function() {
       if (confirm('deleting this batch is permanent and cannot be undone.'))
       {
         $.post('delete', function() {
-          menu.loadFiles().then(function() {
-            menu.refresh();
+          menu.fileMenu('loadFiles').then(function() {
+            menu.fileMenu('refresh');
           });
         }).fail(function() {
           alert('Error deleting the batch. Please try again.')

@@ -1,5 +1,17 @@
 <?php
 
+Route::post('delete', function() {
+    $userFolder = \Visitor::getFolder();
+
+    $sessionFolder = \Visitor::getSessionFolder();
+
+    $uploadPath = public_path(join('/', ['uploads', $userFolder, $sessionFolder]));
+
+    $result = File::deleteDirectory($uploadPath);
+
+    return Response::json('Success!');
+});
+
 Route::any('upload', function() {
 //    if (Input::hasFile('files'))
 //    {

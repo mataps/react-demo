@@ -69,6 +69,13 @@
       this._super(options);
       this.refresh();
     },
+    addFiles: function(files) {
+      $.each(files, function(i, file) {
+        console.log(file);
+        _files.push(file);
+      });
+      this.refresh();
+    },
     loadFiles: function() {
       return $.get('/files', function(res) {
         _files = res.data;
@@ -102,7 +109,6 @@
         files: _files
       });
       _renderer.update(content);
-      DiffRenderer.render();
       setTimeout(function() {
         self.element.find('.editable').editable({
           type: 'text',

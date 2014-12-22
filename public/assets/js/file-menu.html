@@ -1,15 +1,12 @@
 <nav>
     <h2>FILES</h2>
     <ul>
-        <% _.each(files, function(file) { %>
-        <li class="file-names">
+        <% _.each(files, function(file) { %><li class="file-names">
             <a href="#" data-type="text" class="editable"><%= file.name %></a>
             <a href="#" class="edit-button">
                 <i class="fa fa-edit"></i>
             </a>
-        </li>
-        <% }); %>
-
+        </li><% }); %>
         <li class="log-files">
             <a href="#">LOG</a>
         </li>
@@ -17,5 +14,4 @@
             <a href="#" class="delete-batch-btn">DELETE BATCH</a>
         </li>
     </ul>
-
 </nav>
