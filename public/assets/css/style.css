@@ -1,11 +1,33 @@
 html, body{
     height:100%;
+    font-family: 'Ubuntu', sans-serif;
+    /*overflow: hidden;*/
+}
+
+#content-wrapper {
+    padding-left: 0;
+    padding-right: 0;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+}
+
+.logo {
+    text-align: left;
+    margin-left: 1.2em;
+}
+.logo a{
+    text-decoration: none;
+    color: #4E749E;
+    text-transform: lowercase;
+    font-size: 1.1em;
 }
 
 #content {
-    margin-left: 40px;
     float: left;
     height: 100vh;
+    position: relative;
+    width: 100%;
 }
 
 #menu {
@@ -13,20 +35,26 @@ html, body{
     opacity: 0.95;
 }
 
-.preview {
-    width: 78%;
+.upload-preview {
+    /*width: 77.7%;*/
+    /*margin-left: 40px;*/
+    padding: 2em 20em 0em 3em;
 }
 
-.preview .close {
+.upload-preview .close {
     position: relative;
     z-index: 1000;
+}
+
+.upload-preview .filename {
+    margin-right: 20px;
 }
 
 .preview-menu {
     right: 0;
     top: 0;
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 20%;
     background: gray;
     margin: 0;
@@ -39,9 +67,9 @@ html, body{
 }
 
 #fileupload {
-    top: 50%;
-    left: 50%;
-    position: relative;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
 }
 
 #dropzone {
@@ -49,6 +77,20 @@ html, body{
     color: #333;
     text-align: center;
     font-weight: bold;
+    border: 3px dashed #C9DBEF;
+    padding: 8em;
+    border-radius: 2em;
+}
+#dropzone i, #dropzone p {
+    color: #C9DBEF;
+}
+#dropzone i {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+#dropzone p {
+    font-size: 1.2em;
+    margin-bottom: 0;
 }
 #dropzone.in {
     font-size: larger;
@@ -65,18 +107,15 @@ html, body{
     opacity: 1;
 }
 
-.log-files {
-    margin-top: 20px;
+
+@media (min-width: 700px) and (max-width: 980px) {
+    #fileupload {
+        left: 38%;
+    }
 }
 
-.log-files, .delete-batch {
-    text-align: left;
-    border: 0;
-    color: grey;
-    background: rgb(37, 37, 37);
-}
-
-.log-files > a, .delete-batch > a{
-    background: red;
-    background: rgb(50, 50, 50);
+@media (max-width: 700px) {
+    #fileupload {
+        left: 32%;
+    }
 }

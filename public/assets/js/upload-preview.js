@@ -54,6 +54,10 @@
     setProgress: function(value) {
       progress = value;
       this.refresh();
+    },
+    setPreview: function(value) {
+      this.setFilename(value.name);
+      this.setImageSrc(value.thumbnailUrl);
     }
   });
 })();

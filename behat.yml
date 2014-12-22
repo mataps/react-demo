@@ -1,4 +1,4 @@
 default:
     paths:
-        features: app/SSV2/features
+        features: app/Toogether/_features
         bootstrap: %behat.paths.features%/bootstrap
