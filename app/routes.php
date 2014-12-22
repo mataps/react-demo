@@ -122,7 +122,10 @@ Route::get('files', function() {
 
 Route::get('/', function() {
     \Visitor::generateFolderName();
-//    \Visitor::generateSessionFolderName();
+    if (App::isLocal())
+    {
+        \Visitor::generateSessionFolderName();
+    }
 
     return View::make('index');
 });
