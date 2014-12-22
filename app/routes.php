@@ -126,7 +126,6 @@ Route::get('/', function() {
     {
         \Visitor::generateSessionFolderName();
     }
-
     return View::make('index');
 });
 
