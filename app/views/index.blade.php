@@ -72,6 +72,14 @@
             </a>
         </div>
 
+        {{--<header class="codrops-header">--}}
+        {{--<div class="logo">--}}
+        {{--<h3><a href="/">Toogether</a></h3>--}}
+        {{--</div>--}}
+        {{--<h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>--}}
+        {{--</header>--}}
+        
+
         <div class="scroller"><!-- this is for emulating position fixed of the nav -->
             <div class="scroller-inner">
                 <div class="upload-preview">
@@ -81,23 +89,19 @@
                             <span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>
                             <div class="clearfix"></div>
                         </div>
-                        <img width="500px" src="/uploads/795b204957bd09f8ee81c2fa1be07f56ab89eaf3/54972f8b39ddf/1419194287_tumblr_static_nebula_873.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>
+                        <img width="500px" src="/uploads/795b204957bd09f8ee81c2fa1be07f56ab89eaf3/swimming.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>
                     </div>
-                    <ul class="preview-menu list-unstyled">
-                        <li>
-                            <a href="#">Update</a>
-                        </li>
-                        <li>
-                            <a href="#" id="send">Send</a>
-                        </li>
-                    </ul>
                 </div>
-                {{--<header class="codrops-header">--}}
-                    {{--<div class="logo">--}}
-                        {{--<h3><a href="/">Toogether</a></h3>--}}
-                    {{--</div>--}}
-                    {{--<h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>--}}
-                {{--</header>--}}
+                <ul class="inner-right-menu list-unstyled">
+                    <li>
+                        <a href="#" class="btn">UPDATE</a>
+                    </li>
+                    <li>
+                        <a href="#" id="send" class="btn">SEND</a>
+                    </li>
+                </ul>
+
+
 
                 {{--<!-- The file upload form used as target for the file upload widget -->--}}
                 {{--<form id="fileupload" method="POST" enctype="multipart/form-data">--}}
@@ -115,7 +119,26 @@
                     {{--<span class="fileupload-process"></span>--}}
                 {{--</form>--}}
 
-                <div class="content clearfix"></div>
+                <div class="clearfix"></div>
+                <footer>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">HOW TO</a>
+                        </li>
+                        <li>
+                            <a href="#">UPGRADE</a>
+                        </li>
+                        <li>
+                            <a href="#">TERMS OF USE</a>
+                        </li>
+                        <li>
+                            <a href="#">TWITTER</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ</a>
+                        </li>
+                    </ul>
+                </footer>
             </div><!-- /scroller-inner -->
         </div><!-- /scroller -->
 
