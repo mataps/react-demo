@@ -16,7 +16,7 @@
   "dependencies": {
     "jquery": "= 1.x",
     "bootstrap": "~3.2.0",
-    "Faker": "~1.1.0",
+    "backbone": "~1.1.2",
     "ionicons": "~1.5.2",
     "font-awesome": "~4.2.0",
     "lodash": "~2.4.1",
@@ -25,6 +25,6 @@
     "jquery-file-upload": "~9.8.1"
   },
   "devDependencies": {
-    "qunit": "~1.16.0"
+    "Faker": "~1.1.0"
   }
 }

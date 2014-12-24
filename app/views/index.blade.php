@@ -7,15 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--Mobile first-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
-    <link rel="stylesheet" href="/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/vendor/font-awesome/css/font-awesome.min.css">
-    {{--<link rel="stylesheet" href="/assets/vendor/multilevelpushmenu/jquery.multilevelpushmenu.css">--}}
-    <link rel="stylesheet" href="/assets/css/demo.css">
-    <link rel="stylesheet" href="/assets/css/component.css">
-    <link rel="stylesheet" href="/assets/css/bootstrap-editable.css">
-    <link rel="stylesheet" href="/assets/css/menu.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    {{--TODO: Add production and devevelopment css--}}
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -28,35 +20,8 @@
         <nav id="mp-menu" class="mp-menu">
             <div class="mp-level">
                 <h2 class="icon icon-world">Files</h2>
-                <ul>
-                    <li class="icon icon-arrow-left">
-                        <a class="icon icon-display" href="#">1419194287_tumblr_static_nebula_873.jpg</a>
-                    </li>
-                    <li class="icon icon-arrow-left">
-                        <a class="icon icon-news" href="#">1419194287_tumblr_static_nebula_873.jpg</a>
-                    </li>
-                    <li class="icon icon-arrow-left">
-                        <a class="icon icon-shop" href="#">1419194287_tumblr_static_nebula_873.jpg</a>
-                    </li>
-                    <li>
-                        <a href="#" alt="1419194287_tumblr_static_nebula_873.jpg">
-                            1419194287_tumblr_static_nebula_873.jpg
-                        </a>
-                        <a href="#" class="edit-btn">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" alt="1419194287_tumblr_static_nebula_873.jpg">
-                            1419194287_tumblr_static_nebula_873.jpg
-                        </a>
-                        <a href="#" class="edit-btn">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                    </li>
+                <ul class="files">
                 </ul>
-
-
                 <ul class="menu-options">
                     <li><button href="#" class="btn btn-primary">LOG</button></li>
                     <li><button href="#" class="btn btn-primary">DELETE BATCH</button></li>
@@ -78,28 +43,27 @@
         {{--</div>--}}
         {{--<h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>--}}
         {{--</header>--}}
-        
+
 
         <div class="scroller"><!-- this is for emulating position fixed of the nav -->
             <div class="scroller-inner">
-                <div class="upload-preview">
-                    <div class="upload-preview-inner">
-                        <div class="details">
-                            <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                            <span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>
-                            <div class="clearfix"></div>
-                        </div>
-                        <img width="500px" src="/uploads/795b204957bd09f8ee81c2fa1be07f56ab89eaf3/swimming.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>
-                    </div>
-                </div>
-                <ul class="inner-right-menu list-unstyled">
-                    <li>
-                        <a href="#" class="btn">UPDATE</a>
-                    </li>
-                    <li>
-                        <a href="#" id="send" class="btn">SEND</a>
-                    </li>
-                </ul>
+                {{--<div class="upload-preview">--}}
+                    {{--<div class="upload-preview-inner">--}}
+                        {{--<div class="details">--}}
+                            {{--<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>--}}
+                            {{--<span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>--}}
+                            {{--<img src="/uploads/795b204957bd09f8ee81c2fa1be07f56ab89eaf3/swimming.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+                {{--<ul class="inner-right-menu list-unstyled">--}}
+                    {{--<li>--}}
+                        {{--<a href="#" class="btn">UPDATE</a>--}}
+                    {{--</li>--}}
+                    {{--<li>--}}
+                        {{--<a href="#" id="send" class="btn">SEND</a>--}}
+                    {{--</li>--}}
+                {{--</ul>--}}
 
 
 
@@ -243,7 +207,7 @@
 <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
 <script src="/assets/vendor/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
 <!-- The Templates plugin is included to render the upload/download listings -->
-<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.js"></script>
+{{--<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.js"></script>--}}
 <!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
 <script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- The basic File Upload plugin -->
@@ -262,6 +226,8 @@
 {{--<script src="/assets/vendor/multilevelpushmenu/jquery.multilevelpushmenu.js"></script>--}}
 <script src="/assets/js/classie.js"></script>
 <script src="/assets/js/mlpushmenu.js"></script>
+
+{{--<script src="/assets/js/jqfactory.js"></script>--}}
 
 <script src="/assets/js/upload-preview.js"></script>
 <script src="/assets/js/file-menu.js"></script>
