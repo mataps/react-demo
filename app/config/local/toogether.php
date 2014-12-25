@@ -7,10 +7,10 @@ return array(
     ),
     'assets' => array(
         'css' => array(
-            '/assets/build/dist.min.css'
+            '/assets/build/dev.css'
         ),
         'js' => array(
-            '/assets/build/dist.min.js'
+            '/assets/build/dev.js'
         )
     )
 );

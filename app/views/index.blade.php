@@ -7,7 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <!--Mobile first-->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    {{--TODO: Add production and devevelopment css--}}
+    <?php foreach(Config::get('toogether.assets.css') as $css) : ?>
+        <link href='<?php echo $css; ?>' rel='stylesheet' type='text/css'>
+    <?php endforeach; ?>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
 </head>
 
@@ -31,7 +33,7 @@
         <!-- /mp-menu -->
 
         <div class="menu-toggle">
-            <a href="#" id="toggle-menu">
+            <a href="#" id="toggle-menu" class="fade">
                 <i class="fa fa-bars fa-2x fa-rotate-90">
                 </i>
             </a>
@@ -201,44 +203,9 @@
 
 </script>
 
-<script src="/assets/vendor/jquery/dist/jquery.min.js"></script>
-<script src="/assets/vendor/lodash/dist/lodash.min.js"></script>
-
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="/assets/vendor/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<!-- The Templates plugin is included to render the upload/download listings -->
-{{--<script src="//blueimp.github.io/JavaScript-Templates/js/tmpl.js"></script>--}}
-<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="/assets/vendor/jquery-file-upload/js/jquery.fileupload.js"></script>
-<!-- The File Upload processing plugin -->
-<script src="/assets/vendor/jquery-file-upload/js/jquery.fileupload-process.js"></script>
-<!-- The File Upload validation plugin -->
-<script src="/assets/vendor/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
-<!-- The File Upload user interface plugin -->
-<script src="/assets/vendor/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
-
-<script src="/assets/vendor/diff-renderer/dist/diff-renderer.js"></script>
-
-<script src="/assets/js/bootstrap-editable.min.js"></script>
-
-{{--<script src="/assets/vendor/multilevelpushmenu/jquery.multilevelpushmenu.js"></script>--}}
-<script src="/assets/js/classie.js"></script>
-<script src="/assets/js/mlpushmenu.js"></script>
-
-{{--<script src="/assets/js/jqfactory.js"></script>--}}
-
-<script src="/assets/js/upload-preview.js"></script>
-<script src="/assets/js/file-menu.js"></script>
-<script src="/assets/js/drop-zone.js"></script>
-
-<!-- The main application script -->
-<script src="/assets/js/main.js"></script>
-
-<script>
-    new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'toggle-menu' ) );
-</script>
+<?php foreach(Config::get('toogether.assets.js') as $js) : ?>
+    <script src="<?php echo $js; ?>"></script>
+<?php endforeach; ?>
 
 </body>
 </html>

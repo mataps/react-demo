@@ -69,8 +69,6 @@
 //  console.log($leftMenu);
 //});
 
-console.log(window);
-
 window.Toogether = {
   Models: {},
   Collections: {},
@@ -78,6 +76,13 @@ window.Toogether = {
 }
 
 $(function() {
-  'use strict';
-  //DiffRenderer.start();
+  if (typeof window.testEnv !== 'undefined') {
+    return;
+  }
+  var fileMenu = new Toogether.Views.FileMenuView({
+    el: $('#mp-menu'),
+    trigger: $('#toggle-menu')
+  });
+
+  DiffRenderer.start();
 });
