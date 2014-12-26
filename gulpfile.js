@@ -37,7 +37,7 @@ gulp.task('dist-css', ['dev-css'], function() {
       keepSpecialComments: 0,
       noAdvanced: true
     }))
-    .pipe(rename('dev.min.css'))
+    .pipe(rename('dist.min.css'))
     .pipe(gulp.dest(paths.build));
 });
 
