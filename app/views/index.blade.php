@@ -43,46 +43,30 @@
             <div class="scroller-inner">
 
 
-                {{--<div class="upload-preview">--}}
-                    {{--<div class="upload-preview-inner">--}}
-                        {{--<div class="details">--}}
-                            {{--<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>--}}
-                            {{--<span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>--}}
-                            {{--<img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
-                        {{--</div>--}}
-                        {{--<div class="details">--}}
-                            {{--<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>--}}
-                            {{--<span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>--}}
-                            {{--<img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<ul class="inner-right-menu list-unstyled">--}}
-                    {{--<li>--}}
-                        {{--<a href="#" class="btn">UPDATE</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="#" id="send" class="btn">SEND</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
-
-                <div class="upload-preview">
-                    <div class="upload-preview-inner">
-                        <div class="preview-details">
-                            <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                            <span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>
-                            <img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview"/>
-                        </div>
-                    </div>
-                </div>
-
-
                 <header class="codrops-header">
                     <div class="logo">
                         <h3><a href="/">Toogether</a></h3>
                     </div>
                     <h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>
                 </header>
+
+                <div class="upload-preview">
+                    <div class="upload-preview-inner">
+                        <div class="details">
+                            <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>
+                            <img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>
+                        </div>
+                    </div>
+                </div>
+                <ul class="inner-right-menu list-unstyled">
+                    <li>
+                        <a href="#" class="btn">UPDATE</a>
+                    </li>
+                    <li>
+                        <a href="#" id="send" class="btn">SEND</a>
+                    </li>
+                </ul>
 
 
                 <!-- The file upload form used as target for the file upload widget -->

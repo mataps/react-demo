@@ -4,7 +4,7 @@ use Toogether\Application;
 
 Route::group(array('prefix' => 'layouts'), function() {
     Route::get('/', function() {
-        return View::make('home');
+        return View::make('home', ['showBanner'=>true]);
     });
     Route::get('preview', function() {
         return View::make('preview');
@@ -29,12 +29,13 @@ Route::get('files', function() {
 });
 
 Route::get('/', function() {
-    \Visitor::initialize();
-
-    $app = Application::getInstance();
-    $results = $app->query('UploadedFiles');
-
-    $data['files'] = $results->toArray();
+//    \Visitor::initialize();
+//
+//    $app = Application::getInstance();
+//    $results = $app->query('UploadedFiles');
+//
+//    $data['files'] = $results->toArray();
+    $data['files'] = [];
 
     return View::make('index', $data);
 });
