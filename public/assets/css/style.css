@@ -24,7 +24,7 @@ html, body{
     text-decoration: none;
     color: #4E749E;
     text-transform: lowercase;
-    font-size: 1.4em;
+    font-size: 1em;
 }
 
 #content {
@@ -62,7 +62,7 @@ html, body{
     z-index: 1000;
     left: 0;
     top: -1em;
-    font-size: 2.4em;
+    font-size: 2em;
     padding: 0;
     line-height: 0.6em;
 }
@@ -71,7 +71,7 @@ html, body{
     position: absolute;
     right: 0;
     top: -2em;
-    font-size: 1.4em;
+    font-size: 1.2em;
 }
 
 .inner-right-menu {
@@ -90,7 +90,7 @@ html, body{
 
 .inner-right-menu > li > a{
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: 1.2em;
     width: 100%;
 }
 
@@ -106,18 +106,18 @@ html, body{
     text-align: center;
     font-weight: bold;
     border: 3px dashed #C9DBEF;
-    padding: 12em;
+    padding: 8em;
     border-radius: 2em;
 }
 #dropzone i, #dropzone p {
     color: #C9DBEF;
 }
 #dropzone i {
-    font-size: 2em;
+    font-size: 1.4em;
     margin-bottom: 1em;
 }
 #dropzone p {
-    font-size: 2em;
+    font-size: 1.2em;
     margin-bottom: 0;
 }
 #dropzone.in {
@@ -150,8 +150,12 @@ footer ul {
 
 footer ul > li {
     margin: 0 1em;
+}
+
+footer ul > li > a{
+    color: #707070;
+    font-size: .8em;
     font-weight: bold;
-    font-size: 1.4em;
 }
 
 .demo-menu {
@@ -159,6 +163,7 @@ footer ul > li {
     bottom: 0;
     right: 0;
     z-index: 9999;
+    margin-bottom: 1em;
 }
 
 .demo-menu > li {
