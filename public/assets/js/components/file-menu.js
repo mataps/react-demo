@@ -31,10 +31,10 @@
     },
     render: function(e) {
       var self = this;
-      self.$$files.empty();
-      this.collection.each(function(File) {
-        self.$$files.append(self.options.fileTemplate(File.attributes));
-      });
+      //self.$$files.empty();
+      //this.collection.each(function(File) {
+      //  self.$$files.append(self.options.fileTemplate(File.attributes));
+      //});
       this.renderer.update(self.$$files.html());
       DiffRenderer.render();
     }

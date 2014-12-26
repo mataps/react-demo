@@ -39,22 +39,21 @@
             </a>
         </div>
 
-        {{--<header class="codrops-header">--}}
-        {{--<div class="logo">--}}
-        {{--<h3><a href="/">Toogether</a></h3>--}}
-        {{--</div>--}}
-        {{--<h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>--}}
-        {{--</header>--}}
-
-
         <div class="scroller"><!-- this is for emulating position fixed of the nav -->
             <div class="scroller-inner">
+
+
                 {{--<div class="upload-preview">--}}
                     {{--<div class="upload-preview-inner">--}}
                         {{--<div class="details">--}}
                             {{--<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>--}}
                             {{--<span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>--}}
-                            {{--<img src="/uploads/795b204957bd09f8ee81c2fa1be07f56ab89eaf3/swimming.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
+                            {{--<img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
+                        {{--</div>--}}
+                        {{--<div class="details">--}}
+                            {{--<button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>--}}
+                            {{--<span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>--}}
+                            {{--<img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview center-block"/>--}}
                         {{--</div>--}}
                     {{--</div>--}}
                 {{--</div>--}}
@@ -67,23 +66,40 @@
                     {{--</li>--}}
                 {{--</ul>--}}
 
+                <div class="upload-preview">
+                    <div class="upload-preview-inner">
+                        <div class="preview-details">
+                            <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <span class="filename">1419194287_tumblr_static_nebula_873.jpg</span>
+                            <img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview"/>
+                        </div>
+                    </div>
+                </div>
 
 
-                {{--<!-- The file upload form used as target for the file upload widget -->--}}
-                {{--<form id="fileupload" method="POST" enctype="multipart/form-data">--}}
-                    {{--<!-- Redirect browsers with JavaScript disabled to the origin page -->--}}
-                    {{--<noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>--}}
-                    {{--<!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->--}}
-                    {{--<!-- The fileinput-button span is used to style the file input field as button -->--}}
-                    {{--<label class="btn btn-success fileinput-button" id="dropzone">--}}
-                        {{--<i class="glyphicon glyphicon-plus"></i>--}}
-                        {{--<p>You’re currently using FreeView.</p>--}}
-                        {{--<p>You can add upto five assets today.</p>--}}
-                        {{--<input type="file" name="files[]" class="hide" multiple>--}}
-                    {{--</label>--}}
-                    {{--<!-- The global file processing state -->--}}
-                    {{--<span class="fileupload-process"></span>--}}
-                {{--</form>--}}
+                <header class="codrops-header">
+                    <div class="logo">
+                        <h3><a href="/">Toogether</a></h3>
+                    </div>
+                    <h1><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>
+                </header>
+
+
+                <!-- The file upload form used as target for the file upload widget -->
+                <form id="fileupload" method="POST" enctype="multipart/form-data">
+                    <!-- Redirect browsers with JavaScript disabled to the origin page -->
+                    <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
+                    <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+                    <!-- The fileinput-button span is used to style the file input field as button -->
+                    <label class="btn btn-success fileinput-button" id="dropzone">
+                        <i class="glyphicon glyphicon-plus"></i>
+                        <p>You’re currently using FreeView.</p>
+                        <p>You can add upto five assets today.</p>
+                        <input type="file" name="files[]" class="hide" multiple>
+                    </label>
+                    <!-- The global file processing state -->
+                    <span class="fileupload-process"></span>
+                </form>
 
                 <div class="clearfix"></div>
                 <footer>

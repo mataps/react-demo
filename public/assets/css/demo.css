@@ -9,13 +9,13 @@
 }
 
 .codrops-header h1 {
-	margin-bottom: 0;
+	margin-bottom: 1em;
 }
 
 .codrops-header span {
 	display: block;
-	padding: 0 0 0.3em 0.1em;
-	font-size: 1.5em;
+	padding: 0;
+	font-size: 1.3em;
 	opacity: 0.7;
 }
 

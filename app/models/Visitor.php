@@ -1,36 +1,44 @@
 <?php
 
-class Visitor {
+use Toogether\Services\Hashid;
 
-    static function generateFolderName()
+class Visitor extends Eloquent
+{
+
+    protected $table = 'visitors';
+
+    protected $guarded = array();
+
+    static function initialize()
     {
-        if ( ! Session::has('key')) {
-            Session::put('key', Session::getId());
-        }
+        static::generateFolderName();
+        return static::getCurrent();
+    }
+
+    static function getCurrent()
+    {
+        $folder = static::getFolder();
+        $id = Hashid::decode($folder);
+        return static::findOrFail($id)->first();
     }
 
     static function getFolder()
     {
-        if ( ! Session::has('key'))
+        if ( ! Session::has('id'))
         {
             throw new Exception('Visitor not identified');
         }
-
-        return Session::get('key');
+        return Session::get('id');
     }
 
-    static function generateSessionFolderName()
+    static function generateFolderName()
     {
-        Session::put('sessionFolder', uniqid());
-    }
+        $id = Session::get('id');
 
-    static function getSessionFolder()
-    {
-        if ( ! Session::has('sessionFolder'))
-        {
-            throw new Exception('No session folder');
+        if ( ! Session::has('id')) {
+            $user = static::create([]);
+            $id = Hashid::encode($user->id);
         }
-
-        return Session::get('sessionFolder');
+        Session::put('id', $id);
     }
 }

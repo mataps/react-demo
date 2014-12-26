@@ -31,6 +31,8 @@ class LaravelFeatureContext extends BehatContext
     {
         if (!$this->app) {
             $this->refreshApplication();
+            $this->app['artisan']->call('migrate');
+            $this->seed('DatabaseSeeder');
         }
     }
 
@@ -46,5 +48,15 @@ class LaravelFeatureContext extends BehatContext
         $testEnvironment = 'testing';
 
         return require __DIR__ . '/../../../../bootstrap/start.php';
+    }
+
+    function assertStringsEqual($expected, $actual)
+    {
+        $this->assertEquals($expected, $actual, "Strings are not equal: \n{$expected}\n{$actual}");
+    }
+
+    function __call($method, $params)
+    {
+        return call_user_func_array(array('PHPUnit_Framework_Assert', $method), $params);
     }
 }

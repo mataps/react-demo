@@ -12,5 +12,6 @@ return array(
         'js' => array(
             '/assets/build/dist.min.js'
         )
-    )
+    ),
+    'show-demo-menu' => true
 );

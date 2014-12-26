@@ -23,7 +23,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'approview',
+			'database'  => 'toogether_data',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',

@@ -1,0 +1,3 @@
+<?php
+
+$viewer = Viewer::initialize();

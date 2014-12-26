@@ -16,6 +16,10 @@ html, body{
     text-align: left;
     margin-left: 1.2em;
 }
+.logo h3 {
+    margin-top: 0;
+    padding-top: 20px;
+}
 .logo a{
     text-decoration: none;
     color: #4E749E;
@@ -36,7 +40,7 @@ html, body{
 }
 
 .upload-preview {
-    padding: 8em 13em 0em 3em;
+    padding: 5em 17em 0em 5em;
     text-align: center;
 }
 
@@ -78,12 +82,16 @@ html, body{
     width: 14em;
     margin: 0;
     text-align: left;
-    padding: 2em 1em 1em;
+    padding: 2em 2em 1em;
+}
+.inner-right-menu > li {
+    margin-bottom: 1em;
 }
 
 .inner-right-menu > li > a{
     font-weight: bold;
-    font-size: 1.8em;
+    font-size: 1.4em;
+    width: 100%;
 }
 
 #fileupload {
@@ -98,7 +106,7 @@ html, body{
     text-align: center;
     font-weight: bold;
     border: 3px dashed #C9DBEF;
-    padding: 8em;
+    padding: 12em;
     border-radius: 2em;
 }
 #dropzone i, #dropzone p {
@@ -109,14 +117,16 @@ html, body{
     margin-bottom: 1em;
 }
 #dropzone p {
-    font-size: 1.2em;
+    font-size: 2em;
     margin-bottom: 0;
 }
 #dropzone.in {
-    font-size: larger;
 }
 #dropzone.hover {
-    background: #d3d3d3;
+    border: 5px dashed #54CD5A;
+}
+#dropzone.hover i, #dropzone.hover p {
+    color: #54CD5A;
 }
 #dropzone.fade {
     -webkit-transition: all 0.3s ease-out;
@@ -130,6 +140,8 @@ html, body{
 footer {
     padding: 1em;
     margin-top: 1em;
+    position: absolute;
+    bottom: 0;
 }
 
 footer ul {
@@ -142,15 +154,30 @@ footer ul > li {
     font-size: 1.4em;
 }
 
-
-@media (min-width: 700px) and (max-width: 980px) {
-    #fileupload {
-        left: 38%;
-    }
+.demo-menu {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
 }
 
-@media (max-width: 700px) {
-    #fileupload {
-        left: 32%;
-    }
+.demo-menu > li {
+     margin: auto 1em;
+ }
+
+.demo-menu > li > a{
+    color: #896132;
 }
+
+
+/*@media (min-width: 700px) and (max-width: 980px) {*/
+    /*#fileupload {*/
+        /*left: 38%;*/
+    /*}*/
+/*}*/
+
+/*@media (max-width: 700px) {*/
+    /*#fileupload {*/
+        /*left: 32%;*/
+    /*}*/
+/*}*/

@@ -2,79 +2,102 @@
 
 require __DIR__.'/LaravelFeatureContext.php';
 
-use Behat\Behat\Context\BehatContext;
-use Behat\Behat\Event\ScenarioEvent;
-use Behat\Behat\Event\SuiteEvent;
-use Behat\Behat\Exception\PendingException;
-use Behat\Gherkin\Node\TableNode;
-use Illuminate\Foundation\Testing\ApplicationTrait;
+use Toogether\Application;
 
 class FeatureContext extends LaravelFeatureContext {
 
     /**
-     * @Given /^a new "([^"]*)"$/
+     * @Given /^a "([^"]*)"$/
      */
-    public function aNew($arg)
+    public function a($scenario)
     {
-        $this->context = new $arg;
+        $scenario = lcfirst($scenario);
+        $this->context = require app_path("Toogether/_scenarios/{$scenario}.php");
+    }
+
+    /**
+     * @When /^I view "([^"]*)"$/
+     */
+    public function iView($query)
+    {
+        try {
+            $this->result = call_user_func(array(Application::getInstance(), 'query'), $query);
+        }
+        catch(Exception $e)
+        {
+            $this->result = $e;
+        }
+    }
+
+    /**
+     * @When /^I view "([^"]*)" with "([^"]*)"$/
+     */
+    public function iViewWith($query, $params)
+    {
+        $params = require app_path("Toogether/_scenarios/{$params}.php");
+        try {
+            $this->result = call_user_func_array(array(Application::getInstance(), 'query'), array($query, $params));
+        }
+        catch(Exception $e)
+        {
+            $this->result = $e;
+        }
+    }
+
+    /**
+     * @Then /^I should see "([^"]*)"$/
+     */
+    public function iShouldSee($result)
+    {
+        $result = lcfirst($result);
+        require app_path("Toogether/_results/{$result}.php");
     }
 
     /**
      * @When /^I "([^"]*)" with "([^"]*)"$/
      */
-    public function iWith($command, $param)
+    public function iWith($command, $scenario)
     {
-        //create the command instance
-        $this->commandClass = "Toogether\\Commands\\$command";
-        $commandClass = $this->commandClass;
+        $scenario = lcfirst($scenario);
+        require app_path("Toogether/_scenarios/{$scenario}.php");
 
         try {
-            $method = "_with".$param;
-            $this->response = $commandClass::$method($this);
+            $this->result = Application::$command();
         }
-        catch (Exception $e)
+        catch(Exception $e)
         {
-            $this->error = $e;
+            $this->result = $e;
         }
     }
 
     /**
      * @Then /^expect "([^"]*)"$/
      */
-    public function expect($event)
+    public function expect($result)
     {
-        $commandClass = $this->commandClass;
-        $verifyEvent = "__{$event}";
-        $this->assertTrue(method_exists($commandClass, $verifyEvent), "Method $commandClass::$verifyEvent does not exist.");
-        $commandClass::$verifyEvent($this);
-//        $this->assertResponseOk();
-//
-//        if ($this->response->headers->get('content-type') == 'application/json')
-//        {
-//            $this->assertStringsEqual($message, json_decode($this->response->getContent(), true)['message']);
-//        }
-//        else
-//        {
-//            $this->assertStringsEqual($message, $this->response->getContent());
-//        }
+        if (is_subclass_of($this->result, 'Exception'))
+        {
+            throw $this->result;
+        }
+        $reflect = new ReflectionClass($this->result);
+        $this->assertStringsEqual($result, $reflect->getShortName());
     }
 
     /**
-     * @Then /^expect Error "([^"]*)"$/
+     * @Then /^expect error "([^"]*)"$/
      */
-    public function expectError($message)
+    public function expectError($result)
     {
-        $this->assertTrue($this->error instanceof Exception, 'Exception was not thrown');
-        $this->assertStringsEqual($message, $this->error->getMessage());
-    }
+        $excludedExceptions = [
+            'Behat\Behat\Exception\ErrorException',
+            'Exception'
+        ];
 
-    function assertStringsEqual($expected, $actual)
-    {
-        $this->assertEquals($expected, $actual, "Strings are not equal: \n{$expected}\n{$actual}");
-    }
-
-    function __call($method, $params)
-    {
-        return call_user_func_array(array('PHPUnit_Framework_Assert', $method), $params);
+        if (in_array(get_class($this->result), $excludedExceptions))
+        {
+            throw $this->result;
+        }
+        $result = lcfirst($result);
+        require app_path("Toogether/_results/{$result}.php");
     }
 }

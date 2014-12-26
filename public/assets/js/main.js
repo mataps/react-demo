@@ -84,5 +84,40 @@ $(function() {
     trigger: $('#toggle-menu')
   });
 
+  var fileUpload = $('#fileupload');
+  fileUpload.fileupload({
+    url: 'upload',
+    //dropZone: fileUpload,
+    acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
+    maxFileSize: 10000000, // 10 MB
+    minFileSize: 1,
+    filesContainer: '.files',
+    autoUpload: false,
+    sequentialUploads: true,
+    fail: function(e, data) {
+      alert('Fail!');
+    },
+    completed: function(e, data) {
+      if (data.getNumberOfFiles() == 0) {
+        var lastFile = menu.fileMenu('option', 'getLastFile')();
+        preview.uploadPreview('setPreview', lastFile);
+        fileUpload.fileupload('disable');
+        fileUpload.addClass('fade');
+      }
+    }
+  }).on('fileuploadadd', function(e, data) {
+    if (data.files.length) {
+      var file = data.files[0];
+      setTimeout(function() {
+        var error = data.files[0].error;
+        if (error) {
+          e.preventDefault();
+          $(data.context).remove();
+          alert(error);
+        }
+      }, 200);
+    }
+  });
+
   DiffRenderer.start();
 });
