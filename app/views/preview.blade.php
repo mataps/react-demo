@@ -4,9 +4,16 @@
 
     <div class="upload-preview">
         <div class="upload-preview-inner">
-            <div class="details">
+            <div class="asset">
                 <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
                 <span class="filename">tumblr_static_nebula_873.jpg</span>
+
+                <div class="progress-container fade">
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                </div>
+
                 <img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview"/>
             </div>
         </div>

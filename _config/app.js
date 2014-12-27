@@ -4,11 +4,12 @@ var app = {};
 
 app.css = [
   paths.vendor + 'font-awesome/css/font-awesome.css',
+  paths.vendor + 'animate.css/animate.css',
   paths.css + 'bootstrap.custom.css',
   paths.css + 'demo.css',
   paths.css + 'component.css',
   paths.css + 'bootstrap-editable.css',
-  paths.css + 'menu.css',
+  //paths.css + 'menu.css',
   paths.css + 'style.css'
 ];
 

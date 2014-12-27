@@ -10,8 +10,12 @@
     <?php foreach(Config::get('toogether.assets.css') as $css) : ?>
         <link href='<?php echo $css; ?>' rel='stylesheet' type='text/css'>
     <?php endforeach; ?>
+    <?php if(App::isLocal() && $_SERVER['HTTP_USER_AGENT'] == 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2258.2 Safari/537.36'): ?>
+    <!--local font for development only-->
+    <link href='/assets/fonts/ubuntu/local-font.css' rel='stylesheet' type='text/css'>
+    <?php else: ?>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
-</head>
+    <?php endif; ?></head>
 
 <body>
 

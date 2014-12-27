@@ -15,10 +15,11 @@ html, body{
 .logo {
     text-align: left;
     margin-left: 1.2em;
+    position: relative;
+    z-index: 100;
 }
 .logo h3 {
-    margin-top: 0;
-    padding-top: 20px;
+    margin-top: 10px;
 }
 .logo a{
     text-decoration: none;
@@ -39,9 +40,32 @@ html, body{
     opacity: 0.95;
 }
 
+.menu-toggle {
+    position: relative;
+    z-index: 1041;
+    left: 0;
+    display: block;
+    float: left;
+    height: 100%;
+}
+
+.menu-toggle a {
+    color: #333 !important;
+    top: 45%;
+    padding: 10px;
+    position: absolute;
+}
+
 .upload-preview {
-    padding: 5em 17em 0em 5em;
     text-align: center;
+    float: left;
+    width: 83%;
+    padding: 3em 0em 0em 3em;
+}
+
+.upload-preview.uploading-multiple .asset{
+    max-width: 30%;
+    margin-bottom: 4em;
 }
 
 .upload-preview-inner {
@@ -50,7 +74,7 @@ html, body{
     position: relative;
 }
 
-.upload-preview-inner .details {
+.upload-preview-inner .asset {
     padding: 0 .5em .5em;
     font-weight: bold;
     display: inline-block;
@@ -60,7 +84,7 @@ html, body{
 .upload-preview .close {
     position: absolute;
     z-index: 1000;
-    left: 0;
+    left: .3em;
     top: -1em;
     font-size: 2em;
     padding: 0;
@@ -69,9 +93,35 @@ html, body{
 
 .upload-preview .filename {
     position: absolute;
-    right: 0;
+    right: .5em;
     top: -2em;
     font-size: 1.2em;
+}
+
+.upload-preview.working img{
+    opacity: .4;
+}
+.upload-preview.uploading-multiple .progress-container{
+    bottom: -20%;
+    top: auto;
+    padding: 0 2%;
+}
+
+.upload-preview.uploading-multiple .progress {
+    height: 20px;
+}
+
+.progress-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    padding: 0 5%;
+    z-index: 100;
+}
+
+.progress-container .progress {
+    height: 30px;
 }
 
 .inner-right-menu {
@@ -79,10 +129,10 @@ html, body{
     top: 0;
     position: absolute;
     height: 100vh;
-    width: 14em;
+    width: 17%;
     margin: 0;
     text-align: left;
-    padding: 2em 2em 1em;
+    padding: 3% 4%;
 }
 .inner-right-menu > li {
     margin-bottom: 1em;
@@ -160,10 +210,13 @@ footer ul > li > a{
 
 .demo-menu {
     position: absolute;
-    bottom: 0;
-    right: 0;
+    top: 0;
+    left: 0;
     z-index: 9999;
     margin-bottom: 1em;
+    width: 100%;
+    text-align: center;
+    opacity: 0.2;
 }
 
 .demo-menu > li {
@@ -172,6 +225,8 @@ footer ul > li > a{
 
 .demo-menu > li > a{
     color: #896132;
+    text-transform: uppercase;
+    font-size: .8em;
 }
 
 
