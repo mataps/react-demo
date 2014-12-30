@@ -1,0 +1,150 @@
+@import '../vendor/bootstrap/less/bootstrap';
+@import 'variables';
+
+@import 'components/menu';
+@import 'components/stickycomment';
+@import 'components/upload-form';
+@import 'components/preview';
+@import 'components/header';
+@import 'components/footer';
+
+
+html, body{
+  height:100%;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 12px;
+}
+
+.scroller {
+  overflow-y: scroll;
+  margin: 0;
+}
+.scroller-inner {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  width: 100%;
+
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.scroller,
+.scroller-inner {
+  position: relative;
+  min-height: 100%;
+  height: 100%;
+}
+
+.btn {
+  font-weight: bold;
+}
+.btn-inverse {
+  color: #FFF;
+  background-color: #7C7C7C;
+  border-color: #7C7C7C;
+}
+.btn-inverse:hover, .btn-inverse:focus {
+  color: #FFF;
+  background-color: #333;
+  border-color: #333;
+}
+.marker-btn {
+  margin-right: 1em;
+}
+
+#main-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 3em 1em 4em;
+  width: 100%;
+  height: 100%;
+  display: table;
+}
+
+#main-wrapper:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 80%;
+  vertical-align: middle;
+  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
+  margin-left: -0.25em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#main-content {
+  text-align: center;
+  width: 100%;
+  display:table-row;
+  vertical-align: middle;
+}
+
+
+#main-content h1 {
+  font-size: 6vw;
+  margin-bottom: .5em;
+  margin-top: 0;
+}
+
+#content-wrapper {
+  padding-left: 0;
+  padding-right: 0;
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+#menu {
+  -ms-opacity: 0.95;
+  opacity: 0.95;
+}
+
+.menu-toggle {
+  position: relative;
+  z-index: 1041;
+  left: 0;
+  display: block;
+  float: left;
+  height: 100%;
+}
+
+.menu-toggle a {
+  color: #333 !important;
+  top: 45%;
+  padding: 10px;
+  position: absolute;
+}
+
+.demo-menu {
+  position: absolute;
+  z-index: 9999;
+  right: 0;
+  top: 0;
+  margin: .5em 2em;
+}
+
+.demo-menu > li > a{
+  color: #896132;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+.inline-block {
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  white-space: normal;
+}
+
+@media (min-width: 768px) {
+  html, body{
+    font-size: 14px;
+  }
+  #main-content h1 {
+    font-size: 2.6rem;
+  }
+}

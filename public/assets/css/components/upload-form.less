@@ -1,0 +1,64 @@
+#fileupload {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  width: 80vw;
+}
+
+#dropzone {
+  background: white;
+  color: #333;
+  text-align: center;
+  font-weight: bold;
+  border: 3px dashed #C9DBEF;
+  border-radius: 8%;
+  height: 56vh;
+}
+
+#dropzone:before {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 90%;
+  vertical-align: middle;
+  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
+  margin-left: -0.25em;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#dropzone i, #dropzone p {
+  color: #C9DBEF;
+}
+#dropzone i {
+  font-size: 1.4em;
+  margin-bottom: 1em;
+}
+#dropzone p {
+  font-size: 1.2em;
+  margin-bottom: 0;
+}
+#dropzone.in {
+}
+#dropzone.hover {
+  border: 5px dashed #54CD5A;
+}
+#dropzone.hover i, #dropzone.hover p {
+  color: #54CD5A;
+}
+#dropzone.fade {
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  opacity: 1;
+}
+
+
+@media (min-width: 768px) {
+  #dropzone {
+    height: 60vh;
+    padding: 0 10vw;
+  }
+}

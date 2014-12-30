@@ -10,7 +10,7 @@
     <?php foreach(Config::get('toogether.assets.css') as $css) : ?>
     <link href='<?php echo $css; ?>' rel='stylesheet' type='text/css'>
     <?php endforeach; ?>
-    <?php if(App::isLocal() && $_SERVER['HTTP_USER_AGENT'] == 'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2258.2 Safari/537.36'): ?>
+    <?php if(App::isLocal()): ?>
     <!--local font for development only-->
     <link href='/assets/fonts/ubuntu/local-font.css' rel='stylesheet' type='text/css'>
     <?php else: ?>
@@ -21,26 +21,22 @@
 <body>
 
 <?php if (Config::get('toogether.show-demo-menu')): ?>
-<ul class="demo-menu list-inline">
-    <li>
-        <a href="/layouts">Homepage</a>
-    </li>
-    <li>
-        <a href="/layouts/preview?state=uploading">Uploading state</a>
-    </li>
-    <li>
-        <a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a>
-    </li>
-    {{--<li>--}}
-        {{--<a href="/layouts/preview?state=placeholder">Uploading placeholder</a>--}}
-    {{--</li>--}}
-    <li>
-        <a href="/layouts/preview">Upload preview</a>
-    </li>
-    {{--<li>--}}
-        {{--<a href="/layouts/preview?state=updating">Updating asset</a>--}}
-    {{--</li>--}}
-</ul>
+<div class="dropdown demo-menu">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+        Demo
+        <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+        <li><a href="/layouts">Homepage</a></li>
+        <li><a href="/layouts/upload">Upload form</a></li>
+        <li><a href="/layouts/preview?state=uploading">Uploading state</a></li>
+        <li><a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a></li>
+        {{--<li><a href="/layouts/preview?state=placeholder">Uploading placeholder</a></li>--}}
+        <li><a href="/layouts/preview">Upload preview</a></li>
+        <li><a href="/layouts/preview?state=updating">Updating asset</a></li>
+        <li><a href="/layouts/comments">Commenting</a></li>
+    </ul>
+</div>
 <?php endif; ?>
 
 <div class="container-fluid" id="content-wrapper">
@@ -72,42 +68,53 @@
             </a>
         </div>
 
-        <div class="scroller"><!-- this is for emulating position fixed of the nav -->
-            <div class="scroller-inner">
-
-
+        <div class="row scroller"><!-- this is for emulating position fixed of the nav -->
+            <div class="col-xs-12 scroller-inner">
                 <header class="toogether-header">
                     <div class="logo">
                         <h3><a href="/">Toogether</a></h3>
                     </div>
-                    <?php if(isset($showBanner)): ?>
-                    <h1 class="animated fadeInUp"><span>The easiest and fastest,</span><span>1-to-1 way to approve great work.</span><span>No sign-up required.</span></h1>
-                    <?php endif; ?>
-                    <div class="clearfix"></div>
                 </header>
 
-                @yield('content')
+                <div id="main-wrapper">
+                    <div id="main-content" class="container">
 
-                <div class="clearfix"></div>
-                <footer>
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#">HOW TO</a>
-                        </li>
-                        <li>
-                            <a href="#">UPGRADE</a>
-                        </li>
-                        <li>
-                            <a href="#">TERMS OF USE</a>
-                        </li>
-                        <li>
-                            <a href="#">TWITTER</a>
-                        </li>
-                        <li>
-                            <a href="#">FAQ</a>
-                        </li>
-                    </ul>
-                </footer>
+                    @yield('content')
+
+                        <footer class="col-xs-12">
+                            <ul class="list-inline">
+                                <li>
+                                    <a href="#">HOW TO</a>
+                                </li>
+                                <li>
+                                    <a href="#">UPGRADE</a>
+                                </li>
+                                <li>
+                                    <a href="#">TERMS OF USE</a>
+                                </li>
+                                <li>
+                                    <a href="#">TWITTER</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                            </ul>
+                            <ul class="stats list-inline visible-md-block">
+                                <li>
+                                    <a href="#">12,345 Makers</a>
+                                </li>
+                                <li>
+                                    <a href="#">100,345 JPEGs</a>
+                                </li>
+                                <li>
+                                    <a href="#">33,456 Cards</a>
+                                </li>
+                            </ul>
+                        </footer><!-- /footer -->
+
+                    </div><!-- /main-content -->
+                </div><!-- /main-wrapper -->
+
             </div><!-- /scroller-inner -->
         </div><!-- /scroller -->
 
@@ -118,25 +125,7 @@
 <script src="<?php echo $js; ?>"></script>
 <?php endforeach; ?>
 
-
-<script>
-$(function(){
-    <?php if(Input::get('state') == 'uploading'): ?>
-    var preview = $('.upload-preview').addClass('working');
-    preview.find('.progress-container').addClass('in');
-    <?php elseif(Input::get('state') == 'uploading-multiple'): ?>
-    var preview = $('.upload-preview').addClass('working uploading-multiple');
-    var previewInner = preview.find('.upload-preview-inner');
-    preview.find('.progress-container').addClass('in');
-
-    for(var i=0;i<10;i++) {
-        var clone = previewInner.children().first().clone();
-        clone.appendTo(previewInner);
-    }
-    <?php endif; ?>
-});
-</script>
-
+@yield('script')
 
 </body>
 </html>

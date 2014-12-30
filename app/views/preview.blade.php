@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="upload-preview">
+    <div class="upload-preview col-xs-12">
         <div class="upload-preview-inner">
             <div class="asset">
                 <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
@@ -19,13 +19,33 @@
         </div>
     </div>
 
-    <ul class="inner-right-menu list-unstyled">
+    <ul class="col-xs-12 inner-right-menu list-unstyled fade">
         <li>
-            <a href="#" class="btn btn-default">UPDATE</a>
+            <a href="#" class="btn btn-default btn-block">UPDATE</a>
         </li>
         <li>
-            <a href="#" id="send" class="btn btn-default">SEND</a>
+            <a href="#" id="send" class="btn btn-default btn-block">SEND</a>
         </li>
     </ul>
+@stop
 
+@section('script')
+    <script>
+        $(function(){
+            <?php if(Input::get('state') == 'uploading'): ?>
+            var preview = $('.upload-preview').addClass('working');
+            preview.find('.progress-container').addClass('in');
+            <?php elseif(Input::get('state') == 'uploading-multiple'): ?>
+            var preview = $('.upload-preview').addClass('working uploading-multiple');
+            var previewInner = preview.find('.upload-preview-inner');
+            preview.find('.progress-container').addClass('in');
+            for(var i=0;i<5;i++) {
+                var clone = previewInner.children().first().clone();
+                clone.appendTo(previewInner);
+            }
+            <?php else: ?>
+            $('.inner-right-menu').addClass('in');
+            <?php endif; ?>
+        });
+    </script>
 @stop

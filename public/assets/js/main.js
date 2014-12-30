@@ -84,6 +84,8 @@ $(function() {
     trigger: $('#toggle-menu')
   });
 
+  var stickyComment = new Toogether.Views.StickyComment({});
+
   var fileUpload = $('#fileupload');
   fileUpload.fileupload({
     url: 'upload',

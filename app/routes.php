@@ -9,6 +9,12 @@ Route::group(array('prefix' => 'layouts'), function() {
     Route::get('preview', function() {
         return View::make('preview');
     });
+    Route::get('comments', function() {
+        return View::make('comments');
+    });
+    Route::get('upload', function() {
+        return View::make('upload');
+    });
 });
 
 Route::any('upload', function() {
