@@ -45,6 +45,10 @@
             }
             <?php else: ?>
             $('.inner-right-menu').addClass('in');
+            var fileMenu = new Toogether.Views.FileMenuView({
+              el: $('#mp-menu'),
+              trigger: $('#toggle-menu')
+            });
             <?php endif; ?>
         });
     </script>
