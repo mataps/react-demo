@@ -43,7 +43,7 @@ Route::get('/', function() {
 //    $data['files'] = $results->toArray();
     $data['files'] = [];
 
-    return View::make('index', $data);
+    return View::make('home', $data);
 });
 
 Route::get('/{all}', function($hash) {

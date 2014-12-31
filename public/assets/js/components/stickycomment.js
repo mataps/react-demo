@@ -1,47 +1,82 @@
-(function($, window, document, Backbone, App, DiffRenderer, _) {
-  App.Models.Note = Backbone.Model.extend();
+(function($, window, document, Backbone, App, _) {
+  App.Models.Card = Backbone.Model.extend();
 
-  App.Views.StickyComment = Backbone.View.extend({
+  App.Views.Card = Backbone.View.extend({
     events: {
+      "click .clear-btn": "clear",
+      "click .delete-btn": "delete"
     },
     options: {
-      trigger: '',
-      fileTemplate: _.template('test')
     },
     initialize: function(options) {
-      this.$el = $('.notes');
-      this.$comments = this.$el.find('.comments');
       this.options = _.defaults(options || {}, this.options);
+      this.template = _.template(this.$el.html());
+
+      var noteId = '#note-'+this.options.id;
+      this.$el.attr('id', noteId);
+      this.$el.find('.comments').attr('id', 'comment-'+this.options.id);
+      this.$el.find('.tools .btn')
+        .attr('data-target', '#comment-'+this.options.id);
+
+      this.render();
+    },
+    clear: function(e) {
+      this.$comments.html('');
+    },
+    delete: function(e) {
+      if(confirm('This action cannot be undone. Are you sure?')) {
+        this.remove();
+      }
+    },
+    render: function(e) {
       //this.listenTo(this.collection, 'all', this.render);
-      //this.renderer = new DiffRenderer(this.$files.get(0));
-
-
+      //
       this.$el
         .draggable({
-          containment: '#main-wrapper, #ngrip',
-          cancel:'.comments'
+          containment: '#main-wrapper',
+          cancel:'#ngrip, .comments',
+          stack: '.notes',
+          snap: true,
+          snapMode: 'inner'
         })
         .resizable({
           containment: '#main-wrapper',
-          alsoResize: '.contents',
+          alsoResize: this.options.id + ' .contents',
           minHeight: 290,
           handles: {
             'n': this.$el.find('#ngrip')
           }
+        }).css('position', 'absolute').position({
+          of: $(this.options.container)
+        });
+      this.$comments = this.$el.find('.comments');
+      this.$comments.wysiwyg({
+        context: this.$el
       });
-      this.$comments.wysiwyg();
-
-      this.render();
-    },
-    render: function(e) {
-      var self = this;
-      //self.$$files.empty();
-      //this.collection.each(function(File) {
-      //  self.$$files.append(self.options.fileTemplate(File.attributes));
-      //});
-      //this.renderer.update(self.$$files.html());
-      //DiffRenderer.render();
     }
   });
 
-}(jQuery, window, document, Backbone, window.Toogether, DiffRenderer, _));
+  App.Views.StickyComments = Backbone.View.extend({
+    events: {},
+    options: {},
+    cards: [],
+    initialize: function() {
+      this.cardTemplate = $.parseHTML($('#notes-tmpl').html());
+    },
+    newCard: function() {
+      var el = $($.parseHTML($('#notes-tmpl').html()));
+      el.attr('id', 'temp');
+      el.appendTo(this.$el);
+
+      var card = new App.Views.Card({
+        id: this.cards.length + 1,
+        el: $('#temp'),
+        container: this.$el
+      });
+      el.addClass('in');
+      this.cards.push(card);
+    },
+    render: function() {}
+  });
+
+}(jQuery, window, document, Backbone, window.Toogether, _));

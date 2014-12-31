@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jasmine-node _tests --captureExceptions",
-    "develop": "jasmine-node _tests --autotest --captureExceptions --color --watch public/assets/js",
+    "dev": "jasmine-node _tests --autotest --captureExceptions --color --watch public/assets/js",
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "repository": {

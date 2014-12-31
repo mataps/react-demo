@@ -47,11 +47,11 @@
 		return loader.promise();
 	};
 	$.fn.cleanHtml = function (o) {
-		if ( $(this).data("wysiwyg-html-mode") === true ) {
-			$(this).html($(this).text());
-        	$(this).attr('contenteditable',true);
-        	$(this).data('wysiwyg-html-mode',false);
-		}
+		//if ( $(this).data("wysiwyg-html-mode") === true ) {
+		//	$(this).html($(this).text());
+     //   	$(this).attr('contenteditable',true);
+     //   	$(this).data('wysiwyg-html-mode',false);
+		//}
 
 		// Strip the images with src="data:image/.." out;
 		if ( o === true && $(this).parent().is("form") ) {
@@ -71,27 +71,42 @@
 		var html = $(this).html();
 		return html && html.replace(/(<br>|\s|<div><br><\/div>|&nbsp;)*$/, '');
 	};
-	$.fn.wysiwyg = function (userOptions) {
-		var editor = this,
-			wrapper = $(editor).parent(),
+
+	$.fn.wysiwyg = function(options) {
+		return this.each(function() {
+			// Tooltip plugin code here
+			return new Wysiwyg(this, options);
+		});
+	};
+
+	function Wysiwyg(el, userOptions) {
+		this.el = el;
+		this.$el = $(el);
+		if ($.data(this.el, 'plugin_wysiwyg')) {
+			return;
+		} else {
+			$.data(this.el, 'plugin_wysiwyg', true);
+		}
+		var editor = this.$el,
+			wrapper = userOptions.context,
 			selectedRange,
 			options,
 			toolbarBtnSelector,
 			updateToolbar = function () {
 				if (options.activeToolbarClass) {
+					//console.log($(options.toolbarSelector,wrapper));
 					$(options.toolbarSelector,wrapper).find(toolbarBtnSelector).each(underscoreThrottle(function () {
-						var commandArr = $(this).data(options.commandRole).split(' '),
+						var commandArr = this.$el.data(options.commandRole).split(' '),
 							command = commandArr[0];
-
 						// If the command has an argument and its value matches this button. == used for string/number comparison
 						if (commandArr.length > 1 && document.queryCommandEnabled(command) && document.queryCommandValue(command) == commandArr[1]) {
-							$(this).addClass(options.activeToolbarClass);
+							this.$el.addClass(options.activeToolbarClass);
 						// Else if the command has no arguments and it is active
 						} else if (commandArr.length === 1 && document.queryCommandEnabled(command) && document.queryCommandState(command)) {
-							$(this).addClass(options.activeToolbarClass);
+							this.$el.addClass(options.activeToolbarClass);
 						// Else the command is not active
 						} else {
-							$(this).removeClass(options.activeToolbarClass);
+							this.$el.removeClass(options.activeToolbarClass);
 						}
 					}, options.keypressTimeout));
 				}
@@ -190,7 +205,9 @@
 				$.each(files, function (idx, fileInfo) {
 					if (/^image\//.test(fileInfo.type)) {
 						$.when(readFileIntoDataUrl(fileInfo)).done(function (dataUrl) {
-							execCommand('insertimage', dataUrl);
+							var img = '<img src="'+ dataUrl + '" width="100">';
+							document.execCommand("insertHTML", false, img);
+							//execCommand('insertimage', dataUrl);
 							editor.trigger('image-inserted');
 						}).fail(function (e) {
 							options.fileUploadError("file-reader", e);
@@ -209,7 +226,7 @@
 				input.data(options.selectionMarker, color);
 			},
 			bindToolbar = function (toolbar, options) {
-				toolbar.find(toolbarBtnSelector, wrapper).click(function () {
+				toolbar.find(toolbarBtnSelector).click(function () {
 					restoreSelection();
 					editor.focus();
 
@@ -269,16 +286,16 @@
 		bindHotkeys(options.hotKeys);
 
 		// Support placeholder attribute on the DIV
-		if ($(this).attr('placeholder') != '') {
-			$(this).addClass('placeholderText');
-			$(this).html($(this).attr('placeholder'));
-			$(this).bind('focus',function(e) {
+		if (this.$el.attr('placeholder') != '') {
+			this.$el.addClass('placeholderText');
+			this.$el.html(this.$el.attr('placeholder'));
+			this.$el.bind('focus',function(e) {
 				if ( $(this).attr('placeholder') != '' && $(this).text() == $(this).attr('placeholder') ) {
 					$(this).removeClass('placeholderText');
 					$(this).html('');
 				}
 			});
-			$(this).bind('blur',function(e) {
+			this.$el.bind('blur',function(e) {
 				if ( $(this).attr('placeholder') != '' && $(this).text() == '' ) {
 					$(this).addClass('placeholderText');
 					$(this).html($(this).attr('placeholder'));
@@ -289,7 +306,7 @@
 		if (options.dragAndDropImages) {
 			initFileDrops();
 		}
-		bindToolbar($(options.toolbarSelector), options);
+		bindToolbar($(options.toolbarSelector, wrapper), options);
 		editor.attr('contenteditable', true)
 			.on('mouseup keyup mouseout', function () {
 				saveSelection();
@@ -304,7 +321,6 @@
 				updateToolbar();
 			}
 		});
-		return this;
 	};
 	$.fn.wysiwyg.defaults = {
 		hotKeys: {

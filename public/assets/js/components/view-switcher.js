@@ -1,8 +1,4 @@
-(function($, window, document, Backbone, App, DiffRenderer, _, mlPushMenu) {
-  App.Models.File = Backbone.Model.extend();
-  App.Collections.Files = Backbone.Collection.extend({
-    model: App.Models.File
-  });
+(function($, window, document, Backbone, App, DiffRenderer, _) {
 
   App.Views.FileMenuView = Backbone.View.extend({
     events: {
@@ -47,5 +43,4 @@
     }
   });
 
-  //new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'toggle-menu' ) );
-}(jQuery, window, document, Backbone, window.Toogether, DiffRenderer, _, mlPushMenu));
+}(jQuery, window, document, Backbone, window.Toogether, DiffRenderer, _));

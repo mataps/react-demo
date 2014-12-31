@@ -33,7 +33,7 @@
         <li><a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a></li>
         {{--<li><a href="/layouts/preview?state=placeholder">Uploading placeholder</a></li>--}}
         <li><a href="/layouts/preview">Upload preview</a></li>
-        <li><a href="/layouts/preview?state=updating">Updating asset</a></li>
+        {{--<li><a href="/layouts/preview?state=updating">Updating asset</a></li>--}}
         <li><a href="/layouts/comments">Commenting</a></li>
     </ul>
 </div>
@@ -81,38 +81,39 @@
 
                     @yield('content')
 
-                        <footer class="col-xs-12">
-                            <ul class="list-inline">
-                                <li>
-                                    <a href="#">HOW TO</a>
-                                </li>
-                                <li>
-                                    <a href="#">UPGRADE</a>
-                                </li>
-                                <li>
-                                    <a href="#">TERMS OF USE</a>
-                                </li>
-                                <li>
-                                    <a href="#">TWITTER</a>
-                                </li>
-                                <li>
-                                    <a href="#">FAQ</a>
-                                </li>
-                            </ul>
-                            <ul class="stats list-inline visible-md-block">
-                                <li>
-                                    <a href="#">12,345 Makers</a>
-                                </li>
-                                <li>
-                                    <a href="#">100,345 JPEGs</a>
-                                </li>
-                                <li>
-                                    <a href="#">33,456 Cards</a>
-                                </li>
-                            </ul>
-                        </footer><!-- /footer -->
+                        <!-- /footer -->
 
                     </div><!-- /main-content -->
+                    <footer class="col-xs-12">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="#">HOW TO</a>
+                            </li>
+                            <li>
+                                <a href="#">UPGRADE</a>
+                            </li>
+                            <li>
+                                <a href="#">TERMS OF USE</a>
+                            </li>
+                            <li>
+                                <a href="#">TWITTER</a>
+                            </li>
+                            <li>
+                                <a href="#">FAQ</a>
+                            </li>
+                        </ul>
+                        <ul class="stats list-inline visible-md-block">
+                            <li>
+                                <a href="#">12,345 Makers</a>
+                            </li>
+                            <li>
+                                <a href="#">100,345 JPEGs</a>
+                            </li>
+                            <li>
+                                <a href="#">33,456 Cards</a>
+                            </li>
+                        </ul>
+                    </footer>
                 </div><!-- /main-wrapper -->
 
             </div><!-- /scroller-inner -->

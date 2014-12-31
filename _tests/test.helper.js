@@ -9,6 +9,9 @@ global.window = window;
 global.document = window.document;
 window.console = console;
 window.testEnv = true;
+window.loadTmpl = function(filename) {
+  return fs.readFileSync(__dirname+'/spec/'+filename, 'utf-8');
+}
 
 //set up the (this) variable for backbone
 var scriptEl = window.document.createElement("script");

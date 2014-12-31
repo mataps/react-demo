@@ -1,6 +1,7 @@
 @import '../vendor/bootstrap/less/bootstrap';
 @import 'variables';
 
+@import 'components/editable';
 @import 'components/menu';
 @import 'components/stickycomment';
 @import 'components/upload-form';
@@ -8,6 +9,16 @@
 @import 'components/header';
 @import 'components/footer';
 
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
 
 html, body{
   height:100%;
@@ -81,6 +92,7 @@ html, body{
   width: 100%;
   display:table-row;
   vertical-align: middle;
+  position: relative;
 }
 
 
