@@ -17,7 +17,7 @@ class UploadSaved extends Collection{
         );
     }
 
-//    function toJson()
+//    function toArray()
 //    {
 //        //TODO: map results to JSON
 //        return array();

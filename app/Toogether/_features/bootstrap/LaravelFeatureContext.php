@@ -55,6 +55,11 @@ class LaravelFeatureContext extends BehatContext
         $this->assertEquals($expected, $actual, "Strings are not equal: \n{$expected}\n{$actual}");
     }
 
+    function assertArrayEquals($expected, $actual)
+    {
+        $this->assertEquals($expected, $actual, "Arrays are not equal: \n".print_r($expected)."\n".print_r($actual));
+    }
+
     function __call($method, $params)
     {
         return call_user_func_array(array('PHPUnit_Framework_Assert', $method), $params);

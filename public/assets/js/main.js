@@ -75,22 +75,24 @@ window.Toogether = {
   Views: {}
 }
 
+Toogether.Router = Backbone.Router.extend({
+  routes: {
+    '':         'index',
+    'marker':   'marker'
+  },
+  index: function(){
+    Toogether.Views.home = new Toogether.Views.Home();
+  },
+  marker: function(id){
+    Toogether.Collections.files = new Toogether.Collections.Files();
+    Toogether.Views.fileMenu = new Toogether.Views.FileMenu({collection: Toogether.Collections.files});
+    Toogether.Views.marker = new Toogether.Views.Marker({collection: Toogether.Collections.files});
+  }
+});
+
 $(function() {
   if (typeof window.testEnv !== 'undefined')
     return;
-
-  //Toogether.Router = Backbone.Router.extend({
-  //  routes: {
-  //    '':         'index',
-  //    'marker':   'marker'
-  //  },
-  //  index: function(){
-  //
-  //  },
-  //  marker: function(id){
-  //    console.log('test');
-  //  }
-  //});
 
   //var fileMenu;
   //
@@ -144,6 +146,6 @@ $(function() {
   //  }
   //});
 
-  //new Toogether.Router;
-  //Backbone.history.start();
+  new Toogether.Router;
+  Backbone.history.start();
 });

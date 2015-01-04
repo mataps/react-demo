@@ -147,29 +147,30 @@
 
 			// closing the sub levels :
 			// by clicking on the visible part of the level element
-			this.levels.forEach( function( el, i ) {
-				el.addEventListener( self.eventtype, function( ev ) {
-					ev.stopPropagation();
-					var level = el.getAttribute( 'data-level' );
-					if( self.level > level ) {
-						self.level = level;
-						self._closeMenu();
-					}
-				} );
-			} );
-
-			// by clicking on a specific element
-			this.levelBack.forEach( function( el, i ) {
-				el.addEventListener( self.eventtype, function( ev ) {
-					ev.preventDefault();
-					var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
-					if( self.level <= level ) {
-						ev.stopPropagation();
-						self.level = closest( el, 'mp-level' ).getAttribute( 'data-level' ) - 1;
-						self.level === 0 ? self._resetMenu() : self._closeMenu();
-					}
-				} );
-			} );	
+			//this.levels.forEach( function( el, i ) {
+			//	el.addEventListener( self.eventtype, function( ev ) {
+			//		ev.stopPropagation();
+			//
+			//		var level = el.getAttribute( 'data-level' );
+			//		if( self.level > level ) {
+			//			self.level = level;
+			//			self._closeMenu();
+			//		}
+			//	} );
+			//} );
+      //
+			//// by clicking on a specific element
+			//this.levelBack.forEach( function( el, i ) {
+			//	el.addEventListener( self.eventtype, function( ev ) {
+			//		ev.preventDefault();
+			//		var level = closest( el, 'mp-level' ).getAttribute( 'data-level' );
+			//		if( self.level <= level ) {
+			//			ev.stopPropagation();
+			//			self.level = closest( el, 'mp-level' ).getAttribute( 'data-level' ) - 1;
+			//			self.level === 0 ? self._resetMenu() : self._closeMenu();
+			//		}
+			//	} );
+			//} );
 		},
 		_openMenu : function( subLevel ) {
 			// increment level depth

@@ -28,6 +28,9 @@ $env = $app->detectEnvironment(array(
 
 	'local' => array(
 		'acer-',
+	),
+	'openshift' => array(
+		'ex-std-node498.prod.rhcloud.com'
 	)
 ));
 

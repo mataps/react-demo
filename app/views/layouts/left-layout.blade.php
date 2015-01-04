@@ -21,7 +21,7 @@
 <body>
 
 <?php if (Config::get('toogether.show-demo-menu')): ?>
-<div class="dropdown demo-menu">
+<div class="dropdown demo-menu hide">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
         Demo
         <span class="caret"></span>

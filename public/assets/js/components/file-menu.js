@@ -1,49 +1,51 @@
 (function($, window, document, Backbone, App, DiffRenderer, _, mlPushMenu) {
   App.Models.File = Backbone.Model.extend();
-  App.Collections.Files = Backbone.Collection.extend({
-    model: App.Models.File
-  });
+  App.Collections.Files = Backbone.Collection.extend();
 
-  App.Views.FileMenuView = Backbone.View.extend({
+  App.Views.FileMenu = Backbone.View.extend({
+    el: '#mp-menu',
     events: {
+      'click .files li > a': 'changePreview'
     },
     options: {
-      trigger: '',
-      fileTemplate: _.template('<li><a class="icon icon-display" href="#"><%= name %></a></li>')
+      $triggerEl: '',
+      fileTemplate: _.template('<li><a class="icon icon-display" href="#" data-id="<%= id %>"><%= filename %></a></li>')
     },
     initialize: function(options) {
       this.options = _.defaults(options || {}, this.options);
       this.collection = this.collection || new App.Collections.Files;
       this.listenTo(this.collection, 'all', this.render);
 
-      this.$trigger = this.options.trigger;
+      this.$triggerEl = this.options.$triggerEl || $('#toggle-menu');
       this.$files = this.$el.find('.files');
-      this.$$files = this.$files.clone();
-      this.renderer = new DiffRenderer(this.$files.get(0));
 
       //show trigger button
-      this.$trigger.addClass('in');
+      this.$triggerEl.addClass('in');
 
       //init mlPushMenu
-      new mlPushMenu(this.el, this.$trigger.get(0));
+      new mlPushMenu(this.el, this.$triggerEl.get(0));
+
+      this.render();
+    },
+    changePreview: function(e) {
+      e.preventDefault();
+      var id = $(this).attr('data-id');
+      this.trigger('change-preview', this.collection.get(id));
+    },
+    render: function(e) {
+      var self = this;
+      self.$files.empty();
+      this.collection.each(function(File) {
+        self.$files.append(self.options.fileTemplate(File.attributes));
+      });
 
       $.fn.editable.defaults.mode = 'inline';
       this.$files.find('li > a').editable({
         toggle: 'manual'
-      }).on('dblclick doubletap', function() {
+      }).on('dblclick doubletap', function(e) {
+        e.preventDefault();
         $(this).editable('toggle');
-      }).doubletap();
-
-      this.render();
-    },
-    render: function(e) {
-      var self = this;
-      //self.$$files.empty();
-      //this.collection.each(function(File) {
-      //  self.$$files.append(self.options.fileTemplate(File.attributes));
-      //});
-      //this.renderer.update(self.$$files.html());
-      //DiffRenderer.render();
+      });
     }
   });
 

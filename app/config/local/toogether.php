@@ -10,6 +10,7 @@ return array(
             '/assets/build/dev.css'
         ),
         'js' => array(
+            '/assets/build/libs.js',
             '/assets/build/dev.js'
         )
     )

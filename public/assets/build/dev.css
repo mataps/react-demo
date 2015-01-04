@@ -14012,6 +14012,9 @@ pre {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.mp-menu ul li > a.active {
+  color: #ffe183;
+}
 .mp-menu ul li::before {
   position: absolute;
   left: 10px;
@@ -14216,12 +14219,6 @@ ul.menu-options > li > button {
   text-align: center;
   margin-bottom: 1em;
 }
-.upload-preview.uploading-multiple .asset {
-  font-weight: bold;
-  display: inline-block;
-  position: relative;
-  padding: 0 1em;
-}
 .upload-preview-inner {
   width: 100%;
   display: inline-block;
@@ -14232,6 +14229,10 @@ ul.menu-options > li > button {
   display: inline-block;
   position: relative;
   padding: 0 1em;
+  vertical-align: middle;
+}
+.asset .img-preview {
+  width: 100%;
 }
 .upload-preview .close {
   z-index: 1000;
@@ -14244,8 +14245,11 @@ ul.menu-options > li > button {
   font-size: 1.2em;
   float: right;
 }
-.upload-preview.working img {
+.upload-preview.working .img-preview {
   opacity: .4;
+}
+.upload-preview.working .progress-container {
+  opacity: 1;
 }
 .progress-container {
   position: absolute;
@@ -14273,12 +14277,12 @@ ul.menu-options > li > button {
   font-size: 1.2em;
 }
 @media (min-width: 768px) and (max-width: 992px) {
-  .upload-preview.uploading-multiple .asset {
+  .upload-preview.multiple .asset {
     max-width: 48%;
   }
 }
 @media (min-width: 992px) {
-  .upload-preview.uploading-multiple .asset {
+  .upload-preview.multiple .asset {
     max-width: 30%;
   }
   .inner-right-menu {
@@ -14369,7 +14373,7 @@ body {
   background-color: #333;
   border-color: #333;
 }
-.marker-btn {
+#marker-btn {
   margin-right: 1em;
 }
 #main-wrapper {

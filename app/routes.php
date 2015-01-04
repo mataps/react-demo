@@ -20,7 +20,7 @@ Route::group(array('prefix' => 'layouts'), function() {
 Route::any('upload', function() {
     $result = Application::uploadFiles();
 
-    return Response::json($result->toJson());
+    return Response::json($result->toArray());
 });
 
 Route::post('send', function() {

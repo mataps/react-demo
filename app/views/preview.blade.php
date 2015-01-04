@@ -31,12 +31,13 @@
 
 @section('script')
     <script>
+        window.testEnv = true;
         $(function(){
             <?php if(Input::get('state') == 'uploading'): ?>
             var preview = $('.upload-preview').addClass('working');
             preview.find('.progress-container').addClass('in');
             <?php elseif(Input::get('state') == 'uploading-multiple'): ?>
-            var preview = $('.upload-preview').addClass('working uploading-multiple');
+            var preview = $('.upload-preview').addClass('working multiple');
             var previewInner = preview.find('.upload-preview-inner');
             preview.find('.progress-container').addClass('in');
             for(var i=0;i<5;i++) {

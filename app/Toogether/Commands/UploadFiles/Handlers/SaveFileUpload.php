@@ -15,7 +15,7 @@ class SaveFileUpload {
         foreach ($files as $file)
         {
             $destinationPath = public_path($uploadPath);
-            $file->move($destinationPath);
+            $file->move($destinationPath, $file->getClientOriginalName());
             $upload = \Upload::create([
                 'uploader_id' => $result->visitor->id,
                 'filename'  => $file->getClientOriginalName(),

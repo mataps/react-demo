@@ -26,7 +26,7 @@ describe('File menu', function() {
   }
 
   function initView() {
-    view = new Toogether.Views.FileMenuView({ el: el, trigger: $('<a href="#" class="fade">'), collection: collection });
+    view = new Toogether.Views.FileMenu({ el: el, $triggerEl: $('<a href="#" class="fade">'), collection: collection });
   }
 
   beforeEach(function() {
@@ -34,23 +34,23 @@ describe('File menu', function() {
     initCollections();
     initView();
   });
-  it('shoud render on empty collections', function() {
-    var view = new Toogether.Views.FileMenuView({ el: el, trigger: $('<a href="#" class="fade">')});
+  it('should render on empty collections', function() {
+    var view = new Toogether.Views.FileMenu({ el: el, $triggerEl: $('<a href="#" class="fade">')});
     expect(window.document.errors).toBe(undefined);
-  });
+  })
   it('should render files', function() {
     expect(view.$files.children().length).toBe(5);
   });
   it('should show trigger button on load', function() {
-    expect(view.$trigger.hasClass('in')).toBe(true);
-  });
+    expect(view.$triggerEl.hasClass('in')).toBe(true);
+  })
   it('should open menu on clicking trigger button', function() {
-    view.$trigger.trigger('click', function() {
+    view.$triggerEl.trigger('click', function() {
       expect(view.$el.find('.mp-level').hasClass('mp-level-open')).toBe(true);
     });
   });
   it('should update display on change', function() {
     collection.at(0).set('name', 'test');
-    expect(view.$$files.children().first().text()).toBe('test');
+    expect(view.$files.children().first().text()).toBe('test');
   });
 })

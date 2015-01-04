@@ -81,6 +81,8 @@ class FeatureContext extends LaravelFeatureContext {
         }
         $reflect = new ReflectionClass($this->result);
         $this->assertStringsEqual($result, $reflect->getShortName());
+        $result = lcfirst($result);
+        require app_path("Toogether/_results/{$result}.php");
     }
 
     /**
