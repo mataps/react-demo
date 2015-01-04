@@ -22,8 +22,8 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
-			'port' 		=> getenv('OPENSHIFT_MYSQL_DB_PORT'),
+			'host'      => $OPENSHIFT_MYSQL_DB_HOST,
+			'port' 		=> $OPENSHIFT_MYSQL_DB_PORT,
 			'database'  => 'demo',
 			'username'  => 'adminlwwATbt',
 			'password'  => 'xxCM7gQ1pYKs',
