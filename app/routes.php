@@ -35,7 +35,7 @@ Route::get('files', function() {
 });
 
 Route::get('/', function() {
-//    \Visitor::initialize();
+    \Visitor::initialize();
 //
 //    $app = Application::getInstance();
 //    $results = $app->query('UploadedFiles');

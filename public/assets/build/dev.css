@@ -14373,7 +14373,7 @@ body {
   background-color: #333;
   border-color: #333;
 }
-#marker-btn {
+.marker-btn {
   margin-right: 1em;
 }
 #main-wrapper {

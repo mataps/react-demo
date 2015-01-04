@@ -303,9 +303,10 @@ var Marker = React.createClass({displayName: "Marker",
       }).always(function () {
         self.setState({files: self.state.files.concat(data.files)});
       }).done(function () {
-        $('.upload-preview').addClass('working');
-        if ($('.upload-preview').find('.asset').length > 1) {
-          $('.upload-preview').addClass('multiple');
+        var $uploadPreview = $(self.refs.uploadPreview.getDOMNode());
+        $uploadPreview.addClass('working');
+        if ($uploadPreview.find('.asset').length > 1) {
+          $uploadPreview.addClass('multiple');
         }
         data.submit();
       });
@@ -346,7 +347,7 @@ var Marker = React.createClass({displayName: "Marker",
     return (
       React.createElement("div", {className: "marker-page"}, 
         React.createElement(AssetPreview, {files: this.state.uploadedFiles, hide: this.state.hideAssetPreview}), 
-        React.createElement(UploadPreview, {files: this.state.files, hide: !this.state.hideAssetPreview}), 
+        React.createElement(UploadPreview, {ref: "uploadPreview", files: this.state.files, hide: !this.state.hideAssetPreview}), 
         React.createElement(FileUploadForm, {options: this.state.options, hide: this.state.hideForm})
       )
     );
