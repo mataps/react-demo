@@ -4,6 +4,7 @@ var React = require('react/addons');
 var FileUploadForm = require('./FileUploadForm');
 var UploadPreview = require('./UploadPreview');
 var AssetPreview = require('./AssetPreview');
+var DeleteAssetModal = require('./DeleteAssetModal');
 
 var Marker = React.createClass({
   componentDidMount: function() {
@@ -65,12 +66,33 @@ var Marker = React.createClass({
       }
     };
   },
+  handleExternalHide: function() {
+    this.refs.modal.hide()
+  },
+  handleDoingNothing: function() {
+    alert("Sending...");
+  },
+  onDeleteAsset: function(e) {
+    e.preventDefault();
+    this.refs.modal.show();
+  },
   render: function() {
+    var buttons = [
+      {type: 'primary', text: 'YES', handler: this.handleDoingNothing},
+      {type: 'danger',  text: 'NO',  handler: this.handleExternalHide}
+    ];
+
     return (
       <div className="marker-page">
-        <AssetPreview files={this.state.uploadedFiles} hide={this.state.hideAssetPreview}/>
+        <AssetPreview files={this.state.uploadedFiles} hide={this.state.hideAssetPreview} onDeleteAsset={this.onDeleteAsset.bind(this)}/>
         <UploadPreview ref="uploadPreview" files={this.state.files} hide={!this.state.hideAssetPreview}/>
         <FileUploadForm options={this.state.options} hide={this.state.hideForm}/>
+        <DeleteAssetModal ref="modal"
+          show={false}
+          buttons={buttons}
+        >
+          <h2>Are you sure you want to continue.</h2>
+        </DeleteAssetModal>
       </div>
     );
   }

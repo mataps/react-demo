@@ -13829,6 +13829,7 @@ pre {
   position: relative;
   left: 0;
   height: 100%;
+  z-index: 1090;
 }
 .mp-menu {
   position: absolute;
@@ -14095,6 +14096,100 @@ ul.menu-options > li {
 ul.menu-options > li > button {
   font-size: 1.4em;
   width: 100%;
+}
+.modal.fade.in {
+  -webkit-animation-name: anim-open;
+  animation-name: anim-open;
+  opacity: 1;
+  -webkit-animation-duration: 0.3s;
+  animation-duration: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+.modal-dialog {
+  margin: 0 auto;
+}
+.modal-content {
+  border: none;
+}
+.modal-body {
+  padding: 10%;
+}
+.modal-body h2,
+.modal-body .buttons {
+  -webkit-animation: anim-elem 0.3s both;
+  animation: anim-elem 0.3s both;
+}
+.modal-body h2 {
+  margin-bottom: 1em;
+  -webkit-animation-delay: 0.15s;
+  animation-delay: 0.15s;
+}
+.modal-body .buttons {
+  -webkit-animation-delay: 0.05s;
+  animation-delay: 0.05s;
+}
+.modal-body .buttons .btn {
+  margin-right: 1em;
+}
+@-webkit-keyframes anim-open {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes anim-open {
+  0% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@-webkit-keyframes anim-close {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes anim-close {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(0, -100%, 0);
+    transform: translate3d(0, -100%, 0);
+  }
+}
+/* Inner elements animations */
+@-webkit-keyframes anim-elem {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes anim-elem {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -100px, 0);
+    transform: translate3d(0, -100px, 0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
 }
 .notes {
   width: 275px;

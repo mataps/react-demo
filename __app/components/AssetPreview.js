@@ -7,9 +7,9 @@ var AssetPreview = React.createClass({
   render: function() {
     var assets = this.props.files.map(function (file) {
       return (
-        <AssetItem file={file} />
+        <AssetItem file={file} onDeleteAsset={this.props.onDeleteAsset}/>
       );
-    });
+    }.bind(this));
 
     var cx = React.addons.classSet;
     var classes = cx({

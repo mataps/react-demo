@@ -9,7 +9,7 @@ var AssetItem = React.createClass({
   render: function() {
     return (
       <div className="asset" ref="asset">
-        <button type="button" className="close"><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
+        <button type="button" className="close" onClick={this.props.onDeleteAsset}><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
         <span className="filename">{this.props.file.filename}</span>
         <img src={this.props.file.url} className="img-responsive img-preview" />
       </div>
