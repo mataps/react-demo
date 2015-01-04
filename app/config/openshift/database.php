@@ -24,7 +24,7 @@ return array(
 			'driver'    => 'mysql',
 			'host'      => getenv('OPENSHIFT_MYSQL_DB_HOST'),
 			'port' 		=> getenv('OPENSHIFT_MYSQL_DB_PORT'),
-			'database'  => 'toogether_data',
+			'database'  => 'demo',
 			'username'  => 'adminlwwATbt',
 			'password'  => 'xxCM7gQ1pYKs',
 			'charset'   => 'utf8',
