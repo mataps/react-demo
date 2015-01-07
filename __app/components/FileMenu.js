@@ -6,17 +6,18 @@ var FileMenuItem = require('./FileMenuItem');
 var FileMenu = React.createClass({
   componentDidMount: function() {
     var self = this;
+    var toogleMenu = document.getElementById('toggle-menu');
+    var mpMenu = document.getElementById('mp-menu');
+
     $(document).on('fileUploaded', function(e, file) {
       self.setState({ files: self.state.files.concat([file]) });
+      $(toogleMenu).addClass('in');
     });
     $(document).on('uploadFinished', function() {
       var lastFile = self.state.files[self.state.files.length - 1];
       self.setActiveItem(lastFile);
     });
-    var toogleMenu = document.getElementById('toggle-menu');
-    var mpMenu = document.getElementById('mp-menu');
 
-    $(toogleMenu).addClass('in');
     new mlPushMenu(mpMenu, toogleMenu);
   },
   getInitialState: function() {
@@ -50,7 +51,7 @@ var FileMenu = React.createClass({
       <div className="mp-level">
         <h2>Files</h2>
         <ul ref="filesList">
-        {fileNodes}
+          {fileNodes}
         </ul>
         <ul className="menu-options">
           <li><button href="#" onClick={this.renameActiveItem} className="btn btn-info">RENAME</button></li>

@@ -1,34 +1,5 @@
 @extends('layouts.left-layout')
 
-@section('content')
-
-    <div class="upload-preview col-xs-12">
-        <div class="upload-preview-inner">
-            <div class="asset">
-                <button type="button" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                <span class="filename">tumblr_static_nebula_873.jpg</span>
-
-                <div class="progress-container fade">
-                    <div class="progress">
-                        <div class="progress-bar" style="width: 60%;"></div>
-                    </div>
-                </div>
-
-                <img src="/tests/upload.jpg" alt="Upload preview" class="img-responsive img-preview"/>
-            </div>
-        </div>
-    </div>
-
-    <ul class="col-xs-12 inner-right-menu list-unstyled fade">
-        <li>
-            <a href="#" class="btn btn-default btn-block">UPDATE</a>
-        </li>
-        <li>
-            <a href="#" id="send" class="btn btn-default btn-block">SEND</a>
-        </li>
-    </ul>
-@stop
-
 @section('script')
     <script>
         window.testEnv = true;

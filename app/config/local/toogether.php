@@ -13,5 +13,6 @@ return array(
             '/assets/build/libs.js',
             '/assets/build/dev.js'
         )
-    )
+    ),
+    'show-demo-menu' => true
 );

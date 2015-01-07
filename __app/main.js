@@ -8,6 +8,7 @@ var FileMenu = require('./components/FileMenu');
 
 //router
 var Router = require('director').Router;
+var EventEmitter = require('events').EventEmitter;
 
 var setMainContent = function(component) {
   React.render(
@@ -30,6 +31,8 @@ var routes = {
   }
 };
 
-var router = Router(routes);
-router.configure({html5history: false, convert_hash_in_init: false});
-router.init('/');
+if (!window.testEnv) {
+  var router = Router(routes);
+  router.configure({html5history: false, convert_hash_in_init: false});
+  router.init('/');
+}

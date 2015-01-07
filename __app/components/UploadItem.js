@@ -16,7 +16,6 @@ var UploadItem = React.createClass({
     };
     return (
         <div className="asset" ref="asset">
-          <button type="button" className="close"><span aria-hidden="true">×</span><span className="sr-only">Close</span></button>
           <span className="filename">{this.props.file.name}</span>
           <div className="progress-container fade">
             <div className="progress">

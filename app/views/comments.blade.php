@@ -27,6 +27,13 @@
             <a href="#" id="approve" class="btn btn-default btn-block">APPROVE</a>
         </li>
     </ul>
+    <div id="comments-container"></div>
+@stop
+
+@section('pre-script')
+    <script>
+        window.testEnv = true;
+    </script>
 @stop
 
 @section('script')
@@ -92,19 +99,11 @@
     </script>
 
     <script>
-        $(function() {
-            var fileMenu = new Toogether.Views.FileMenuView({
-              el: $('#mp-menu'),
-              trigger: $('#toggle-menu')
-            });
+        var React = require('react');
+        var Marker = require('./__app/components/CommentCanvas.js')({
+            triggerEl: document.getElementById('new-card')
+        });
+        React.render(Marker, document.getElementById('comments-container'));
 
-            var stickyComment = new Toogether.Views.StickyComments({
-                el: $('#main-content')
-            });
-
-            $('#new-card').on('click', function() {
-                stickyComment.newCard();
-            });
-        })
     </script>
 @stop

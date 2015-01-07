@@ -21,7 +21,7 @@
 <body>
 
 <?php if (Config::get('toogether.show-demo-menu')): ?>
-<div class="dropdown demo-menu hide">
+<div class="dropdown demo-menu">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
         Demo
         <span class="caret"></span>
@@ -29,12 +29,13 @@
     <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
         <li><a href="/layouts">Homepage</a></li>
         <li><a href="/layouts/upload">Upload form</a></li>
-        <li><a href="/layouts/preview?state=uploading">Uploading state</a></li>
-        <li><a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a></li>
+        {{--<li><a href="/layouts/preview?state=uploading">Uploading state</a></li>--}}
+        {{--<li><a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a></li>--}}
         {{--<li><a href="/layouts/preview?state=placeholder">Uploading placeholder</a></li>--}}
-        <li><a href="/layouts/preview">Upload preview</a></li>
+        {{--<li><a href="/layouts/preview">Upload preview</a></li>--}}
         {{--<li><a href="/layouts/preview?state=updating">Updating asset</a></li>--}}
         <li><a href="/layouts/comments">Commenting</a></li>
+        <li><a href="/layouts/dialogs">Dialogs</a></li>
     </ul>
 </div>
 <?php endif; ?>
@@ -58,6 +59,11 @@
                     <li><button href="#" class="btn btn-danger">DELETE BATCH</button></li>
                 </ul>
             </div>
+            <ul class="menu-options">
+                <li><button href="#" onClick={this.renameActiveItem} class="btn btn-info">RENAME</button></li>
+                <li><button href="#" class="btn btn-primary">LOG</button></li>
+                <li><button href="#" class="btn btn-danger">DELETE BATCH</button></li>
+            </ul>
         </nav>
         <!-- /mp-menu -->
 
@@ -121,6 +127,9 @@
 
     </div><!-- /pusher -->
 </div><!-- /container -->
+
+@yield('pre-script')
+
 
 <?php foreach(Config::get('toogether.assets.js') as $js) : ?>
 <script src="<?php echo $js; ?>"></script>

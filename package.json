@@ -39,6 +39,8 @@
     "jest-cli": "~0.1.18",
     "less-plugin-autoprefix": "^1.0.1",
     "react": "^0.12.2",
+    "react-events": "^0.7.9",
+    "react-mixin-manager": "^0.10.0",
     "react-router": "^0.11.6",
     "react-tools": "^0.12.2",
     "vinyl-buffer": "^1.0.0",

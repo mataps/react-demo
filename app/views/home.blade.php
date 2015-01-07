@@ -1,12 +1,15 @@
 @extends('layouts.left-layout')
 
-@section('content')
+@section('pre-script')
+    <script>
+        window.testEnv = true;
+    </script>
+@stop
 
-    {{--<h1 class="animated fadeInUp">The easiest and fastest,<br/>1-to-1 way to approve great work.<br/>No sign-up required.</h1>--}}
-    {{--<div class="text-center">--}}
-        {{--<a href="#marker" class="btn btn-inverse" id="marker-btn">MARKER</a>--}}
-        {{--<a href="#approver" class="btn btn-inverse" id="approver-btn">APPROVER</a>--}}
-    {{--</div>--}}
-    {{--<div class="clearfix"></div>--}}
-
+@section('script')
+    <script>
+        var React = require('react');
+        var Marker = require('./__app/components/Homepage.js')();
+        React.render(Marker, document.getElementById('main-content'));
+    </script>
 @stop

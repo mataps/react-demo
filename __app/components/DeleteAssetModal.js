@@ -13,13 +13,17 @@ var DeleteAssetModal = React.createClass({
       return <button type="button" className={'btn btn-lg btn-' + button.type} onClick={button.handler}>
         {button.text}
       </button>
-    })
+    });
+
+    var content = this.props.children || (
+      <h2>{this.props.content}</h2>
+    );
 
     return <div className="modal fade">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-body">
-            {this.props.children}
+            {content}
             <div className="buttons">
               {buttons}
             </div>

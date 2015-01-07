@@ -106,10 +106,35 @@ gulp.task('r-libs', function () {
 });
 
 gulp.task('r-js', function() {
-  var bundler = browserify('./__app/main.js', {debug: true});
+  var options = {
+    debug: true
+  };
+  var bundler = browserify('./__app/main.js', options);
+  var fs = require('fs');
 
-  return bundler.bundle()
-    // log errors if they happen
+  function getFiles(dir,files_){
+    files_ = files_ || [];
+    if (typeof files_ === 'undefined') files_=[];
+    var files = fs.readdirSync(dir);
+    for(var i in files){
+      if (!files.hasOwnProperty(i)) continue;
+      var name = dir+'/'+files[i];
+      if (fs.statSync(name).isDirectory()){
+        getFiles(name,files_);
+      } else {
+        files_.push(name);
+      }
+    }
+    return files_;
+  }
+  var components = getFiles('./__app/components');
+  components.map(function(component) {
+    bundler.require(component);
+  });
+
+  return bundler
+    .require('react', {expose: 'react'})
+    .bundle()
     .on('error', function(err){
       gutil.log(err.message);
       this.emit('end');

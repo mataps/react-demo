@@ -45,6 +45,7 @@ app.js = [
   //paths.js + '/libs/wysiwyg-external/google-code-prettify/prettify.js',
   paths.js + '/libs/bootstrap-wysiwyg.js',
   paths.js + '/libs/bootstrap-editable.js',
+  paths.js + '/libs/draggable.ext.js',
   paths.js + '/libs/classie.js',
   paths.js + '/libs/mlpushmenu.js',
   //paths.js + '/components/upload-preview.js',

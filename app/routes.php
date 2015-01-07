@@ -15,23 +15,26 @@ Route::group(array('prefix' => 'layouts'), function() {
     Route::get('upload', function() {
         return View::make('upload');
     });
+    Route::get('dialogs', function() {
+        return View::make('dialogs');
+    });
 });
 
-Route::any('upload', function() {
-    $result = Application::uploadFiles();
+Route::group(array('prefix' => 'api/v1'), function() {
+    Route::any('upload', function() {
+        $result = Application::uploadFiles();
+        return Response::json($result->toArray());
+    });
 
-    return Response::json($result->toArray());
-});
+    Route::post('send', function() {
+        Application::sendAsset();
+    });
 
-Route::post('send', function() {
-    Application::sendAsset();
-});
-
-Route::get('files', function() {
-    $app = Application::getInstance();
-    $results = $app->query('UploadedFiles');
-
-    return $results->toJson();
+    Route::get('uploads', function() {
+        $app = Application::getInstance();
+        $results = $app->query('UploadedFiles');
+        return Response::json($results->toArray());
+    });
 });
 
 Route::get('/', function() {
@@ -43,7 +46,7 @@ Route::get('/', function() {
 //    $data['files'] = $results->toArray();
     $data['files'] = [];
 
-    return View::make('home', $data);
+    return View::make('layouts.left-layout', $data);
 });
 
 Route::get('/{all}', function($hash) {

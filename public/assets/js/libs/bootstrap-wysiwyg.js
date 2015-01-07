@@ -94,21 +94,21 @@
 			toolbarBtnSelector,
 			updateToolbar = function () {
 				if (options.activeToolbarClass) {
-					//console.log($(options.toolbarSelector,wrapper));
-					$(options.toolbarSelector,wrapper).find(toolbarBtnSelector).each(underscoreThrottle(function () {
-						var commandArr = this.$el.data(options.commandRole).split(' '),
-							command = commandArr[0];
-						// If the command has an argument and its value matches this button. == used for string/number comparison
-						if (commandArr.length > 1 && document.queryCommandEnabled(command) && document.queryCommandValue(command) == commandArr[1]) {
-							this.$el.addClass(options.activeToolbarClass);
-						// Else if the command has no arguments and it is active
-						} else if (commandArr.length === 1 && document.queryCommandEnabled(command) && document.queryCommandState(command)) {
-							this.$el.addClass(options.activeToolbarClass);
-						// Else the command is not active
-						} else {
-							this.$el.removeClass(options.activeToolbarClass);
-						}
-					}, options.keypressTimeout));
+					//$(options.toolbarSelector,wrapper).find(toolbarBtnSelector).each(underscoreThrottle(function () {
+					//	console.log(options);
+					//	var commandArr = $(this).data(options.commandRole).split(' '),
+					//		command = commandArr[0];
+					//	// If the command has an argument and its value matches this button. == used for string/number comparison
+					//	if (commandArr.length > 1 && document.queryCommandEnabled(command) && document.queryCommandValue(command) == commandArr[1]) {
+					//		this.$el.addClass(options.activeToolbarClass);
+					//	// Else if the command has no arguments and it is active
+					//	} else if (commandArr.length === 1 && document.queryCommandEnabled(command) && document.queryCommandState(command)) {
+					//		this.$el.addClass(options.activeToolbarClass);
+					//	// Else the command is not active
+					//	} else {
+					//		this.$el.removeClass(options.activeToolbarClass);
+					//	}
+					//}, options.keypressTimeout));
 				}
 			},
 			execCommand = function (commandWithArgs, valueArg) {

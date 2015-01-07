@@ -7,7 +7,7 @@ var FileUploadForm = React.createClass({
     var $form = $(this.refs.fileupload.getDOMNode());
     var $inputContainer = $(this.refs.inputContainer.getDOMNode());
     var options = {
-      url: 'upload',
+      url: 'api/v1/upload',
       acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i,
       maxFileSize: 10000000, // 10 MB
       minFileSize: 1,

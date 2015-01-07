@@ -1,11 +1,27 @@
-.modal.fade.in {
-  -webkit-animation-name: anim-open;
-  animation-name: anim-open;
+.modal-backdrop {
+  background: rgba(55, 58, 71, 0.9);
+}
+
+.modal-dialog{
+  width: 50%;
+  max-width: 560px;
+  min-width: 290px;
+
   opacity: 1;
   -webkit-animation-duration: 0.3s;
   animation-duration: 0.3s;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+}
+
+.modal.fade .modal-dialog{
+  -webkit-animation-name: anim-close;
+  animation-name: anim-close;
+}
+
+.modal.fade.in .modal-dialog{
+  -webkit-animation-name: anim-open;
+  animation-name: anim-open;
 }
 .modal-dialog {
   margin: 0 auto;
@@ -15,11 +31,12 @@
 }
 .modal-body {
   padding: 10%;
-  h2, .buttons {
+  h1, h2, .buttons {
+
     -webkit-animation: anim-elem 0.3s both;
     animation: anim-elem 0.3s both;
   }
-  h2 {
+  h1, h2 {
     margin-bottom: 1em;
     -webkit-animation-delay: 0.15s;
     animation-delay: 0.15s;
