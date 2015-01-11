@@ -52,6 +52,7 @@
     "blueimp-load-image": "^1.13.0",
     "browserify": "^8.0.3",
     "browserify-shim": "^3.8.2",
+    "cortexjs": "^0.6.2",
     "director": "^1.2.7",
     "jquery": "^1.11.2",
     "jquery-ui": "^1.10.5",

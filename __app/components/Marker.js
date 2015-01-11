@@ -56,6 +56,7 @@ var Marker = React.createClass({
     return {
       hideForm: false,
       hideAssetPreview: true,
+      hideUploadPreview: true,
       files: [],
       uploadedFiles: [],
       options: {
@@ -85,7 +86,7 @@ var Marker = React.createClass({
     return (
       <div className="marker-page">
         <AssetPreview files={this.state.uploadedFiles} hide={this.state.hideAssetPreview} onDeleteAsset={this.onDeleteAsset.bind(this)}/>
-        <UploadPreview ref="uploadPreview" files={this.state.files} hide={!this.state.hideAssetPreview}/>
+        <UploadPreview ref="uploadPreview" files={this.state.files} hide={this.state.hideUploadPreview}/>
         <FileUploadForm options={this.state.options} hide={this.state.hideForm}/>
         <DeleteAssetModal ref="modal"
           show={false}

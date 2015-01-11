@@ -29,7 +29,7 @@ var BootstrapModalMixin = function() {
 
     , getDefaultProps: function() {
       return {
-        backdrop: true
+        backdrop: 'static'
         , keyboard: true
         , show: true
         , remote: ''

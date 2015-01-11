@@ -1,6 +1,7 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
+var cx = React.addons.classSet;
 
 var FileUploadForm = React.createClass({
   componentDidMount: function() {
@@ -24,7 +25,6 @@ var FileUploadForm = React.createClass({
     $form.fileupload(options);
   },
   render: function() {
-    var cx = React.addons.classSet;
     var classes = cx({
       'hide': this.props.hide
     });
@@ -32,13 +32,14 @@ var FileUploadForm = React.createClass({
     return (
       <form id="fileupload" ref="fileupload" method="POST" encType="multipart/form-data" className={classes}>
         <label className="btn btn-success fileinput-button" id="dropzone">
-          <div className="inline-block" ref="inputContainer">
+          <div className="v-center" ref="inputContainer">
             <i className="glyphicon glyphicon-plus"></i>
             <p>You’re currently using FreeView.</p>
             <p>You can add upto five assets today.</p>
           </div>
         </label>
-        <span className="fileupload-process"></span>
+        <div className="banner">Easy 1-to-1 asset approval.</div>
+        <div className="banner">No signup required.</div>
       </form>
     );
   }

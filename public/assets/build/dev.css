@@ -13810,6 +13810,34 @@ pre {
 .editable-buttons .btn {
   height: calc(2.28571429rem  + 2px);
 }
+.btn-circle {
+  width: 45px;
+  height: 45px;
+  border-radius: 32px;
+}
+.btn-circle i {
+  font-size: 3.2em;
+  line-height: 0;
+}
+.btn-circle i:before {
+  line-height: 0.73em;
+}
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 35px;
+}
 .comment-canvas {
   background: rgba(51, 51, 51, 0.5);
   position: relative;
@@ -13830,6 +13858,23 @@ pre {
   background: #fff;
   box-shadow: 0 6px #34495e, 0 12px #fff, 0 18px #34495e, 0 24px #fff;
   content: '';
+}
+#menu {
+  -ms-opacity: 0.95;
+  opacity: 0.95;
+}
+.menu-toggle {
+  position: relative;
+  z-index: 1041;
+  left: 0;
+  display: block;
+  float: left;
+  height: 100%;
+}
+.menu-toggle a {
+  color: #333 !important;
+  top: 33%;
+  position: absolute;
 }
 .mp-pusher {
   position: relative;
@@ -14285,26 +14330,18 @@ ul.menu-options > li > button {
 #fileupload {
   display: block;
   text-align: center;
-  margin: 0 auto;
+  margin: 8em auto;
   width: 80vw;
 }
 #dropzone {
-  background: white;
+  background: #1D9DDE;
   color: #333;
   text-align: center;
-  font-weight: bold;
-  border: 3px dashed #C9DBEF;
-  border-radius: 8%;
-  height: 56vh;
-}
-#dropzone:before {
-  content: '';
-  width: 0;
-  height: 90%;
-  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
-  margin-left: -0.25em;
-  display: inline-block;
-  vertical-align: middle;
+  font-weight: 300;
+  border-radius: 3%;
+  height: 43vh;
+  border: none;
+  margin-bottom: 6.5em;
 }
 #dropzone i,
 #dropzone p {
@@ -14339,92 +14376,27 @@ ul.menu-options > li > button {
     padding: 0 10vw;
   }
 }
-.upload-preview {
-  text-align: center;
-  margin-bottom: 1em;
-}
-.upload-preview-inner {
-  width: 100%;
-  display: inline-block;
-  position: relative;
-}
-.upload-preview-inner .asset {
-  font-weight: bold;
-  display: inline-block;
-  position: relative;
-  padding: 0 1em;
-  vertical-align: middle;
-}
-.asset .img-preview {
+.asset-preview img {
   width: 100%;
 }
-.upload-preview .close {
-  z-index: 1000;
-  font-size: 2em;
-  padding: 0;
-  line-height: 0.6em;
-  float: left;
-}
-.upload-preview .filename {
-  font-size: 1.2em;
-  float: right;
-}
-.upload-preview.working .img-preview {
-  opacity: .4;
-}
-.upload-preview.working .progress-container {
-  opacity: 1;
-}
-.progress-container {
-  position: absolute;
-  top: 50%;
+header {
+  padding: 0 1.5em;
+  font-size: 1.8em;
+  position: fixed;
+  top: 35px;
   left: 0;
+  font-weight: 200;
   width: 100%;
-  padding: 0 5%;
-  z-index: 100;
-}
-.progress-container .progress {
-  height: 20px;
-}
-.inner-right-menu {
-  right: 0;
-  top: 0;
-  margin: 0;
-  text-align: center;
-  padding: 0 2em;
-  z-index: 2;
-}
-.inner-right-menu > li {
-  margin-bottom: 1em;
-}
-.inner-right-menu > li > a {
-  font-weight: bold;
-  font-size: 1.2em;
-}
-@media (min-width: 768px) and (max-width: 992px) {
-  .upload-preview.multiple .asset {
-    max-width: 48%;
-  }
-}
-@media (min-width: 992px) {
-  .upload-preview.multiple .asset {
-    max-width: 30%;
-  }
-  .inner-right-menu {
-    position: absolute;
-    right: 3em;
-    top: 8em;
-    display: inline-block;
-    width: auto;
-  }
 }
 .logo {
-  text-align: left;
-  position: relative;
-  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 40px;
+  width: 30px;
+  display: inline-block;
 }
-.logo h3 {
-  margin-top: 0;
+.logo img {
+  width: 100%;
 }
 .logo a {
   text-decoration: none;
@@ -14432,58 +14404,86 @@ ul.menu-options > li > button {
   text-transform: lowercase;
   font-size: 1em;
 }
-footer {
-  position: absolute !important;
-  left: 0;
-  bottom: 0;
-  margin-bottom: 10px;
-}
-footer ul {
-  margin-bottom: 0;
+.caption-center {
+  display: block;
   text-align: center;
 }
+.caption-left {
+  position: absolute;
+  display: inline-block;
+  right: 50px;
+  top: 0;
+}
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: white;
+  width: 100%;
+}
+footer ul {
+  position: relative;
+  bottom: 0;
+  margin-bottom: 1.3em;
+  text-align: center;
+  padding-left: 0;
+  list-style: none;
+  width: 100%;
+}
 footer ul li {
-  margin: 0 1em;
+  margin: 0;
+  padding: .4em;
+  display: inline-block;
 }
 footer ul li a {
-  color: #707070;
-  font-size: .8em;
-  font-weight: bold;
+  color: #AAA9A7;
+  font-size: .9em;
+  font-weight: normal;
 }
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 7px;
+.confirm-buttons {
+  text-align: center;
+  margin: 2.6em;
+  color: #E30B34;
 }
-::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+.confirm-buttons .btn {
+  color: #E30B34;
+}
+.hour-caption {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: .9em;
+  vertical-align: middle;
+  margin: 0 1.5em;
+}
+.hour-caption .smallest {
+  font-size: .34em;
+  line-height: 1em;
+  display: block;
 }
 html,
 body {
   height: 100%;
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 12px;
-}
-.scroller {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  margin: 0;
-}
-.scroller-inner {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  float: left;
-  width: 100%;
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
 }
 .scroller,
 .scroller-inner {
   position: relative;
-  min-height: 100%;
+  width: 100%;
+}
+.scroller {
+  float: left;
+}
+.scroller-inner {
   height: 100%;
+  min-height: 100vh;
+  float: left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 .btn {
   font-weight: bold;
@@ -14502,60 +14502,92 @@ body {
 .marker-btn {
   margin-right: 1em;
 }
-#main-wrapper {
-  position: absolute;
+.layer-2 {
+  position: fixed;
   top: 0;
-  left: 0;
-  padding: 3em 1em 4em;
-  width: 100%;
-  height: 100%;
-  display: table;
+  color: #4EB3E6;
 }
-#main-wrapper:before {
+.layer-2:before {
   content: '';
   width: 0;
-  height: 80%;
-  /* this just takes care of whitespace added by having display:inline-block (there are other methods) */
+  height: 97%;
   margin-left: -0.25em;
   display: inline-block;
   vertical-align: middle;
 }
-#main-content {
+.layer-2 .content {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.layer-2.blue {
+  color: white;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 130, 178, 0.8);
+}
+.layer-2.red {
+  color: white;
+  height: 100%;
+  width: 100%;
+  background: rgba(208, 16, 53, 0.9);
+}
+.upload-progress {
+  position: absolute;
+  top: 32%;
+  width: 100%;
+  text-align: center;
+}
+.timer {
+  display: inline-block;
+  margin-top: 1.5em;
+  padding: 0 1.5em;
+}
+.small {
+  font-size: .8em;
+  font-weight: 300;
+  margin: 0;
+}
+.smaller {
+  font-size: .7em;
+  font-weight: 300;
+  margin: 0;
+}
+.medium {
+  font-size: 1.8em;
+  line-height: 2em;
+  font-weight: 200;
+  margin: 0;
+}
+.large {
+  font-size: 3.8em;
+  line-height: 1em;
+  font-weight: 200;
+  margin: 0;
+}
+.v-center {
+  position: relative;
+  top: 45%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.bold {
+  font-weight: 400;
+}
+.date-buttons {
+  color: white;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 53%;
   text-align: center;
   width: 100%;
-  display: table-row;
-  vertical-align: middle;
-  position: relative;
 }
-#main-content h1 {
-  font-size: 6vw;
-  margin-bottom: .5em;
-  margin-top: 0;
-}
-#content-wrapper {
-  padding-left: 0;
-  padding-right: 0;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-}
-#menu {
-  -ms-opacity: 0.95;
-  opacity: 0.95;
-}
-.menu-toggle {
-  position: relative;
-  z-index: 1041;
-  left: 0;
-  display: block;
-  float: left;
-  height: 100%;
-}
-.menu-toggle a {
-  color: #333 !important;
-  top: 45%;
-  padding: 10px;
-  position: absolute;
+.banner {
+  line-height: 1.3em;
+  font-weight: 300;
+  font-size: 1.6em;
 }
 .demo-menu {
   position: absolute;
@@ -14568,21 +14600,6 @@ body {
   color: #896132;
   text-transform: uppercase;
   font-size: .8em;
-}
-.inline-block {
-  display: inline-block;
-  vertical-align: middle;
-  width: 100%;
-  white-space: normal;
-}
-@media (min-width: 768px) {
-  html,
-  body {
-    font-size: 14px;
-  }
-  #main-content h1 {
-    font-size: 2.6rem;
-  }
 }
 
 /*# sourceMappingURL=/assets/build/dev.css.map */

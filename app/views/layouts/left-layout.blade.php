@@ -14,7 +14,7 @@
     <!--local font for development only-->
     <link href='/assets/fonts/ubuntu/local-font.css' rel='stylesheet' type='text/css'>
     <?php else: ?>
-    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,400' rel='stylesheet' type='text/css'>
     <?php endif; ?>
 </head>
 
@@ -29,7 +29,7 @@
     <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
         <li><a href="/layouts">Homepage</a></li>
         <li><a href="/layouts/upload">Upload form</a></li>
-        {{--<li><a href="/layouts/preview?state=uploading">Uploading state</a></li>--}}
+        <li><a href="/layouts/preview?state=uploading">Uploading state</a></li>
         {{--<li><a href="/layouts/preview?state=uploading-multiple">Uploading multiple</a></li>--}}
         {{--<li><a href="/layouts/preview?state=placeholder">Uploading placeholder</a></li>--}}
         {{--<li><a href="/layouts/preview">Upload preview</a></li>--}}
@@ -40,7 +40,7 @@
 </div>
 <?php endif; ?>
 
-<div class="container-fluid" id="content-wrapper">
+<div id="content-wrapper">
     <!-- Push Wrapper -->
     <div class="mp-pusher" id="mp-pusher">
         <!-- mp-menu -->
@@ -67,62 +67,8 @@
         </nav>
         <!-- /mp-menu -->
 
-        <div class="menu-toggle">
-            <a href="#" id="toggle-menu" class="fade">
-                <i class="fa fa-bars fa-2x fa-rotate-90">
-                </i>
-            </a>
-        </div>
-
-        <div class="row scroller"><!-- this is for emulating position fixed of the nav -->
-            <div class="col-xs-12 scroller-inner">
-                <header class="toogether-header">
-                    <div class="logo">
-                        <h3><a href="/">Toogether</a></h3>
-                    </div>
-                </header>
-
-                <div id="main-wrapper">
-                    <div id="main-content" class="container">
-
-                    @yield('content')
-
-                        <!-- /footer -->
-
-                    </div><!-- /main-content -->
-                    <footer class="col-xs-12">
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#">HOW TO</a>
-                            </li>
-                            <li>
-                                <a href="#">UPGRADE</a>
-                            </li>
-                            <li>
-                                <a href="#">TERMS OF USE</a>
-                            </li>
-                            <li>
-                                <a href="#">TWITTER</a>
-                            </li>
-                            <li>
-                                <a href="#">FAQ</a>
-                            </li>
-                        </ul>
-                        <ul class="stats list-inline visible-md-block">
-                            <li>
-                                <a href="#">12,345 Makers</a>
-                            </li>
-                            <li>
-                                <a href="#">100,345 JPEGs</a>
-                            </li>
-                            <li>
-                                <a href="#">33,456 Cards</a>
-                            </li>
-                        </ul>
-                    </footer>
-                </div><!-- /main-wrapper -->
-
-            </div><!-- /scroller-inner -->
+        <div class="scroller" id="main-content">
+            @yield('content')
         </div><!-- /scroller -->
 
     </div><!-- /pusher -->

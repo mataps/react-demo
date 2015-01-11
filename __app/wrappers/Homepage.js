@@ -1,11 +1,11 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
-var FileUploadForm = require('./FileUploadForm');
-var UploadPreview = require('./UploadPreview');
-var NavLayer = require('./NavLayer');
+var FileUploadForm = require('../components/FileUploadForm');
+var UploadPreview = require('../components/UploadPreview');
+var NavLayer = require('../components/NavLayer');
 
-var Hompage = React.createClass({
+var Homepage = React.createClass({
   getInitialState: function() {
     var self = this;
 
@@ -24,11 +24,6 @@ var Hompage = React.createClass({
           }
         });
       }).done(function () {
-        //var $uploadPreview = $(self.refs.uploadPreview.getDOMNode());
-        //$uploadPreview.addClass('working');
-        //if ($uploadPreview.find('.asset').length > 1) {
-        //  $uploadPreview.addClass('multiple');
-        //}
         self.refs.navLayer.transitionTo('uploading');
         data.submit();
       });
@@ -37,12 +32,6 @@ var Hompage = React.createClass({
     var onProgressAll = function(e, data) {
       var progress = Math.floor(data.loaded / data.total * 100);
       self.refs.navLayer.setProgress(progress);
-      //var files = _.forEach(self.state.files, function(file) {
-      //  if (file.name === data.files[0].name) {
-      //    file.progress = progress;
-      //  }
-      //});
-      //self.setState({files: files});
     };
 
     var onDone = function(e, data) {
@@ -55,18 +44,20 @@ var Hompage = React.createClass({
     }
 
     return {
-      FileUploadForm: {
-        hide: false,
-        options: {
-          add: onAdd,
-          progressall: onProgressAll,
-          done: onDone,
-          stop: onStop
-        }
-      },
-      UploadPreview: {
-        files: []
-      }
+      activeState: 'home',
+      states: ['home', 'uploading', 'setTimer', '']
+      //FileUploadForm: {
+      //  hide: false,
+      //  options: {
+      //    add: onAdd,
+      //    progressall: onProgressAll,
+      //    done: onDone,
+      //    stop: onStop
+      //  }
+      //},
+      //UploadPreview: {
+      //  files: []
+      //}
     }
   },
   render: function() {
@@ -79,4 +70,4 @@ var Hompage = React.createClass({
     );
   }
 });
-module.exports = Hompage;
+module.exports = Homepage;

@@ -1,27 +1,25 @@
 /** @jsx React.DOM */
 
 var React = require('react/addons');
+var cx = React.addons.classSet;
 var UploadItem = require('./UploadItem');
 
 var UploadPreview = React.createClass({
   render: function() {
     var assets = this.props.files.map(function (file) {
       return (
-        <UploadItem file={file} />
+        <img src="/tests/0917wonderful-com.png" alt=""/>
       );
     });
 
-    var cx = React.addons.classSet;
     var classes = cx({
-      'upload-preview col-xs-12': !this.props.hide,
-      'upload-preview col-xs-12 hide': this.props.hide
+      'asset-preview': this.props.files.length,
+      'asset-preview hide': !this.props.files.length
     });
 
     return (
       <div className={classes}>
-        <div className="upload-preview-inner">
-          {assets}
-        </div>
+        {assets}
       </div>
     );
   }
