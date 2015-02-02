@@ -61,7 +61,7 @@ gulp.task('dist-css', ['dev-css'], function() {
 });
 
 
-gulp.task('dist', ['dist-css', 'dev-js', 'dist-js']);
+gulp.task('dist', ['dev-css', 'r-libs', 'dev-js']);
 
 gulp.task('dev', ['dev-css', 'r-libs', 'dev-js'], function() {
   gulp.watch(app.css, ['dev-css']);

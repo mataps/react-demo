@@ -13,13 +13,23 @@ Install [composer](https://getcomposer.org/download)
 
 Download [NodeJS](http://nodejs.org)  
 
-Install bower dependencies  
-``npm install -g bower``  
+Install js dependencies
+``npm install -g bower``
+``bower install``
+``npm install``
+
+Compile js
+``gulp dist``
 
 Run the server  
-``php artisan serve``  
+``php artisan serve``
+
+You can now view the app on
+``localhost:8000``
 
 
+
+# EXTRAS
 ## RUNNING TESTS (BACKEND)
 ``behat``  
 
