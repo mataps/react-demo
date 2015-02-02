@@ -11,7 +11,7 @@ return array(
         ),
         'js' => array(
             '/assets/build/libs.js',
-            '/assets/build/dev.js'
+            '/assets/build/bundle.js'
         )
     ),
     'show-demo-menu' => true

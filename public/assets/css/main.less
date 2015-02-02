@@ -34,10 +34,67 @@ html, body{
   float: left;
   overflow-y: scroll;
   overflow-x: hidden;
-//  padding-bottom: 168px;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
+
+  &.blue {
+    .layer-2 {
+      background: rgba(0, 130, 178, 0.8);
+    }
+  }
+  &.green {
+    .layer-2 {
+      background: rgba(161, 207, 66, 0.9);
+    }
+    .confirm-buttons .btn,
+    .hour-caption,
+    .date-buttons .active{
+      color: #A1CF42 !important;
+    }
+    .date-buttons .btn {
+      color: white;
+    }
+  }
+  &.yellow {
+    .layer-2 {
+      background: rgba(226, 191, 32, 0.9);
+    }
+    .confirm-buttons .btn,
+    .hour-caption,
+    .date-buttons .active{
+      color: #E2BF20 !important;
+    }
+    .date-buttons .btn {
+      color: white;
+    }
+  }
+  &.orange {
+    .layer-2 {
+      background: rgba(227, 93, 30, 0.9);
+    }
+    .confirm-buttons .btn,
+    .hour-caption,
+    .date-buttons .active{
+      color: #E35D1E !important;
+    }
+    .date-buttons .btn {
+      color: white;
+    }
+  }
+  &.red {
+    .layer-2 {
+      background: rgba(228, 11, 52, 0.9);
+    }
+    .confirm-buttons .btn,
+    .hour-caption,
+    .date-buttons .active{
+      color: #E40B34 !important;
+    }
+    .date-buttons .btn {
+      color: white;
+    }
+  }
 }
 
 .btn {
@@ -61,34 +118,41 @@ html, body{
   position: fixed;
   top: 0;
   color: #4EB3E6;
-  //  left: 0;
-  //  z-index: 1;
-  //  width: 100%;
-  //  height: 100%;
-  &:before {
-    content: '';
-    width: 0;
-    height: 97%;
-    margin-left: -0.25em;
-    display: inline-block;
-    vertical-align: middle;
-  }
+  min-height: 667px;
   .content {
-    display: inline-block;
+    position: fixed;
+    top: 132px;
     width: 100%;
     text-align: center;
   }
-  &.blue {
+  &.opened {
     color: white;
     height: 100%;
     width: 100%;
-    background: rgba(0, 130, 178, 0.8);
   }
-  &.red {
-    color: white;
-    height: 100%;
-    width: 100%;
-    background: rgba(208, 16, 53, 0.9);
+}
+
+.confirm-buttons .btn,
+.hour-caption {
+  color: #1B9CDE;
+} 
+
+.confirm-buttons {
+  text-align: center;
+  margin: 2.6em;
+}
+
+.hour-caption {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: .9em;
+  vertical-align: middle;
+  margin: 0 1.5em;
+  .smallest {
+    font-size: .34em;
+    line-height: 1em;
+    display: block;
   }
 }
 
@@ -122,7 +186,7 @@ html, body{
   margin: 0;
 }
 .large {
-  font-size: 3.8em;
+  font-size: 3.7em;
   line-height: 1em;
   font-weight: 200;
   margin: 0;
@@ -141,12 +205,25 @@ html, body{
 
 .date-buttons {
   color: white;
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  height: 53%;
   text-align: center;
-  width: 100%;
+  margin-top: 85px;
+  input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    pointer-events: none;
+  }
+  label {
+    padding-top: 10px;
+    padding-left: 11px;
+    background: transparent;
+    border: none;
+    color: inherit;
+  }
+  label.active {
+    background: white;
+    border: none;
+    box-shadow: none;
+  }
 }
 
 .banner {

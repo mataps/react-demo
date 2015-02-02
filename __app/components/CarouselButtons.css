@@ -1,0 +1,17 @@
+.CarouselButtons {
+	bottom: auto;
+	margin-bottom: 0;
+}
+
+.CarouselButtons li{
+	margin: 1px 6px;
+	width: 8px;
+	height: 8px;
+	border: 1px solid #B1B1AF;
+}
+.CarouselButtons li.active{
+	margin: 1px 6px;
+	width: 8px;
+	height: 8px;
+	background: #888888;
+}

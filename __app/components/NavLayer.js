@@ -2,7 +2,6 @@
 
 var React = require('react/addons');
 var cx = React.addons.classSet;
-var UploadProgress = require('./UploadProgress');
 var ConfirmButtons = require('./ConfirmButtons');
 
 var NavLayer = React.createClass({
@@ -79,7 +78,6 @@ var NavLayer = React.createClass({
           <div className="caption-center">Freeview</div>
           <div className="caption-left">+3</div>
         </header>
-        <UploadProgress progress={this.state.progress} show={this.state.showProgress}/>
         <div className={"content" + contentClass}>
           <p className="large">24 hours</p>
           <p className="large">auto-deletion</p>

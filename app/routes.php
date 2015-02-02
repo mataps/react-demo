@@ -2,9 +2,9 @@
 
 use Toogether\Application;
 
-Route::group(array('prefix' => 'layouts'), function() {
+Route::group(array('prefix' => 'components'), function() {
     Route::get('/', function() {
-        return View::make('home', ['showBanner'=>true]);
+        return View::make('components/color-changing', ['showBanner'=>true]);
     });
     Route::get('preview', function() {
         return View::make('preview');

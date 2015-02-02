@@ -1,7 +1,6 @@
 var React = require('react/addons');
-//var Cortex = require("cortexjs");
 
-var Homepage = require('./components/Homepage');
+var Maker = require('./layers/Maker');
 
 //router
 //var Router = require('director').Router;
@@ -29,13 +28,8 @@ var Homepage = require('./components/Homepage');
 //};
 
 if (!window.testEnv) {
-  //var state = {
-  //  showHomepage: true
-  //};
-  //var wrapped = new Cortex(state);
-
   React.render(
-    React.createElement(Homepage),
+    React.createElement(Maker),
     document.getElementById('main-content')
   );
 

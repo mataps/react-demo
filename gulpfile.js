@@ -16,14 +16,21 @@ var
   watchify      = require('watchify'),
   browserify    = require('browserify'),
   jest          = require('gulp-jest'),
-  template      = require('gulp-template-compile');
+  template      = require('gulp-template-compile'),
+  glob = require("glob"),
+  webpack = require('webpack'),
+  reactify = require('reactify');
 
 
-gulp.task('dev-js', ['compile-tmpl'], function () {
-  return gulp.src(app.js)
-    .pipe(concatSourcemap('dev.js'))
-    .pipe(replace(/public\//g, '/'))
-    .pipe(gulp.dest(paths.build));
+gulp.task('dev-js', function (callback) {
+  var config = require('./webpack.config.js');
+  webpack(config, function(err, stats) {
+    if(err) throw new gutil.PluginError("webpack", err);
+    gutil.log("[webpack]", stats.toString({
+        // output options
+    }));
+  });
+  callback();
 });
 
 gulp.task('dist-js', function() {
@@ -53,23 +60,11 @@ gulp.task('dist-css', ['dev-css'], function() {
     .pipe(gulp.dest(paths.build));
 });
 
-gulp.task('compile-tmpl', function () {
-  return gulp.src(app.tmpl)
-    .pipe(template({
-      name: function (file) {
-        return file.relative.replace('.tmpl.html', '');
-      }
-    }))
-    .pipe(concat('tmpl.js'))
-    .pipe(gulp.dest(paths.build));
-});
 
 gulp.task('dist', ['dist-css', 'dev-js', 'dist-js']);
 
-gulp.task('dev', ['dev-css', 'dev-js'], function() {
-  gulp.watch(app.js, ['dev-js']);
+gulp.task('dev', ['dev-css', 'r-libs', 'dev-js'], function() {
   gulp.watch(app.css, ['dev-css']);
-  gulp.watch(paths.tmpl, ['compile-tmpl']);
   gulp.watch(paths.css+'**/*.less', ['dev-css']);
 });
 
@@ -95,7 +90,6 @@ gulp.task('jest', function () {
 gulp.task('r-dev', ['dev-css', 'r-libs', 'r-js'], function() {
   gulp.watch(app.css, ['dev-css']);
   gulp.watch(paths.css+'**/*.less', ['dev-css']);
-  gulp.watch('./__app/**/*', ['r-js']);
 });
 
 gulp.task('r-libs', function () {
@@ -106,31 +100,12 @@ gulp.task('r-libs', function () {
 });
 
 gulp.task('r-js', function() {
-  var options = {
-    debug: true
-  };
-  var bundler = browserify('./__app/main.js', options);
-  var fs = require('fs');
-
-  function getFiles(dir,files_){
-    files_ = files_ || [];
-    if (typeof files_ === 'undefined') files_=[];
-    var files = fs.readdirSync(dir);
-    for(var i in files){
-      if (!files.hasOwnProperty(i)) continue;
-      var name = dir+'/'+files[i];
-      if (fs.statSync(name).isDirectory()){
-        getFiles(name,files_);
-      } else {
-        files_.push(name);
-      }
-    }
-    return files_;
-  }
-  var components = getFiles('./__app/components');
-  components.map(function(component) {
-    bundler.require(component);
+  var bundler = browserify({
+    debug: true,
+    entries: ['./__app/main.js'],
+    transform: [reactify]
   });
+  exposeModules(bundler, './__app');
 
   return bundler
     .require('react', {expose: 'react'})
@@ -140,10 +115,13 @@ gulp.task('r-js', function() {
       this.emit('end');
     })
     .pipe(source('dev.js'))
-    // optional, remove if you dont want sourcemaps
     .pipe(buffer())
-    .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
-    .pipe(sourcemaps.write('./')) // writes .map file
-    //
+    .pipe(sourcemaps.init({loadMaps: true}))
+    .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(paths.build));
 });
+
+function exposeModules(bundler, path) {
+  var files = glob.sync("./__app/**/*.js");
+  bundler.require(files);
+}

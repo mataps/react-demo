@@ -13813,11 +13813,14 @@ pre {
 .btn-circle {
   width: 45px;
   height: 45px;
-  border-radius: 32px;
+  border-radius: 32px !important;
+  font-size: 1.3em;
+  font-weight: normal !important;
 }
 .btn-circle i {
-  font-size: 3.2em;
+  font-size: 2.5em;
   line-height: 0;
+  font-weight: bolder;
 }
 .btn-circle i:before {
   line-height: 0.73em;
@@ -14376,12 +14379,22 @@ ul.menu-options > li > button {
     padding: 0 10vw;
   }
 }
+.asset-preview {
+  padding-bottom: 168px;
+}
+.asset-preview.slide {
+  background: black;
+  overflow: hidden;
+  perspective: 500px;
+  -webkit-perspective: 500px;
+  -moz-perspective: 500px;
+}
 .asset-preview img {
   width: 100%;
 }
 header {
   padding: 0 1.5em;
-  font-size: 1.8em;
+  font-size: 1.75em;
   position: fixed;
   top: 35px;
   left: 0;
@@ -14440,27 +14453,6 @@ footer ul li a {
   font-size: .9em;
   font-weight: normal;
 }
-.confirm-buttons {
-  text-align: center;
-  margin: 2.6em;
-  color: #E30B34;
-}
-.confirm-buttons .btn {
-  color: #E30B34;
-}
-.hour-caption {
-  display: inline-block;
-  font-weight: 400;
-  font-size: 2em;
-  line-height: .9em;
-  vertical-align: middle;
-  margin: 0 1.5em;
-}
-.hour-caption .smallest {
-  font-size: .34em;
-  line-height: 1em;
-  display: block;
-}
 html,
 body {
   height: 100%;
@@ -14485,6 +14477,53 @@ body {
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
+.scroller-inner.blue .layer-2 {
+  background: rgba(0, 130, 178, 0.8);
+}
+.scroller-inner.green .layer-2 {
+  background: rgba(161, 207, 66, 0.9);
+}
+.scroller-inner.green .confirm-buttons .btn,
+.scroller-inner.green .hour-caption,
+.scroller-inner.green .date-buttons .active {
+  color: #A1CF42 !important;
+}
+.scroller-inner.green .date-buttons .btn {
+  color: white;
+}
+.scroller-inner.yellow .layer-2 {
+  background: rgba(226, 191, 32, 0.9);
+}
+.scroller-inner.yellow .confirm-buttons .btn,
+.scroller-inner.yellow .hour-caption,
+.scroller-inner.yellow .date-buttons .active {
+  color: #E2BF20 !important;
+}
+.scroller-inner.yellow .date-buttons .btn {
+  color: white;
+}
+.scroller-inner.orange .layer-2 {
+  background: rgba(227, 93, 30, 0.9);
+}
+.scroller-inner.orange .confirm-buttons .btn,
+.scroller-inner.orange .hour-caption,
+.scroller-inner.orange .date-buttons .active {
+  color: #E35D1E !important;
+}
+.scroller-inner.orange .date-buttons .btn {
+  color: white;
+}
+.scroller-inner.red .layer-2 {
+  background: rgba(228, 11, 52, 0.9);
+}
+.scroller-inner.red .confirm-buttons .btn,
+.scroller-inner.red .hour-caption,
+.scroller-inner.red .date-buttons .active {
+  color: #E40B34 !important;
+}
+.scroller-inner.red .date-buttons .btn {
+  color: white;
+}
 .btn {
   font-weight: bold;
 }
@@ -14506,31 +14545,39 @@ body {
   position: fixed;
   top: 0;
   color: #4EB3E6;
-}
-.layer-2:before {
-  content: '';
-  width: 0;
-  height: 97%;
-  margin-left: -0.25em;
-  display: inline-block;
-  vertical-align: middle;
+  min-height: 667px;
 }
 .layer-2 .content {
-  display: inline-block;
+  position: fixed;
+  top: 132px;
   width: 100%;
   text-align: center;
 }
-.layer-2.blue {
+.layer-2.opened {
   color: white;
   height: 100%;
   width: 100%;
-  background: rgba(0, 130, 178, 0.8);
 }
-.layer-2.red {
-  color: white;
-  height: 100%;
-  width: 100%;
-  background: rgba(208, 16, 53, 0.9);
+.confirm-buttons .btn,
+.hour-caption {
+  color: #1B9CDE;
+}
+.confirm-buttons {
+  text-align: center;
+  margin: 2.6em;
+}
+.hour-caption {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 2em;
+  line-height: .9em;
+  vertical-align: middle;
+  margin: 0 1.5em;
+}
+.hour-caption .smallest {
+  font-size: .34em;
+  line-height: 1em;
+  display: block;
 }
 .upload-progress {
   position: absolute;
@@ -14560,7 +14607,7 @@ body {
   margin: 0;
 }
 .large {
-  font-size: 3.8em;
+  font-size: 3.7em;
   line-height: 1em;
   font-weight: 200;
   margin: 0;
@@ -14577,12 +14624,25 @@ body {
 }
 .date-buttons {
   color: white;
-  position: absolute;
-  bottom: 100%;
-  left: 0;
-  height: 53%;
   text-align: center;
-  width: 100%;
+  margin-top: 85px;
+}
+.date-buttons input[type="radio"] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+.date-buttons label {
+  padding-top: 10px;
+  padding-left: 11px;
+  background: transparent;
+  border: none;
+  color: inherit;
+}
+.date-buttons label.active {
+  background: white;
+  border: none;
+  box-shadow: none;
 }
 .banner {
   line-height: 1.3em;
